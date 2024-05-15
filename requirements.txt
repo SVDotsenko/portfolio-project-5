@@ -1,7 +1,6 @@
-cloudinary==1.40.0
 dj-database-url==2.1.0
 dj3-cloudinary-storage==0.0.6
-django==4.2.11
+django==4.1.13
 django-allauth==0.61.1
 PyJWT==2.8.0
 whitenoise==6.6.0
