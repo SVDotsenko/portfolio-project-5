@@ -17,6 +17,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from donation.views import my_donation
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('donation/', my_donation, name='donation'),
 ]
