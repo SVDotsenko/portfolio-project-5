@@ -1,6 +1,5 @@
-from django.http import HttpResponse
+from django.shortcuts import render
 
 
-# Create your views here.
-def my_donation(request):
-    return HttpResponse("Hello, Charity!")
+def donations(request):
+    return render(request, 'donation/donations.html')
