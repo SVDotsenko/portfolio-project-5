@@ -4,15 +4,12 @@
     <section class="section-padding" id="section_3">
         <div class="container">
             <div class="row">
-
                 <div class="col-lg-12 col-12 text-center mb-4">
                     <h2>Our Causes</h2>
                 </div>
-
                 {% for donation in donations %}
                     {% include "donation/donation.html" with donation=donation %}
                 {% endfor %}
-
             </div>
         </div>
     </section>
