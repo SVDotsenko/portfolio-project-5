@@ -7,6 +7,7 @@ def donations(request):
     image_cycle = cycle(os.listdir('static/images/causes'))
     donations = [
         {
+            'id': 1,
             'image': 'static/images/causes/' + next(image_cycle),
             'title': "Title 1",
             'description': "Description 1",
@@ -14,6 +15,7 @@ def donations(request):
             'goal': 50000,
         },
         {
+            'id': 2,
             'image': 'static/images/causes/' + next(image_cycle),
             'title': "Title 2",
             'description': "Description 2",
@@ -21,6 +23,7 @@ def donations(request):
             'goal': 70000,
         },
         {
+            'id': 3,
             'image': 'static/images/causes/' + next(image_cycle),
             'title': "Title 3",
             'description': "Description 3",
@@ -28,8 +31,15 @@ def donations(request):
             'goal': 100000,
         },
     ]
-
+    keys = {
+        'pk': os.getenv('STRIPE_PK'),
+        'sk': os.getenv('STRIPE_SK'),
+    }
     for donation in donations:
         donation['percentage'] = donation['raised'] / donation['goal'] * 100
 
-    return render(request, 'donation/donations.html', {'donations': donations})
+    context = {
+        'donations': donations,
+        'keys': keys,
+    }
+    return render(request, 'donation/donations.html', context)
