@@ -22,5 +22,5 @@ from donation.views import donations
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', donations, name='donation'),
-    path("donate/", include("donate.urls")),
+    path("donate/", include("donation.urls")),
 ]

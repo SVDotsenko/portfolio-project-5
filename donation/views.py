@@ -1,5 +1,6 @@
 import os
 from itertools import cycle
+
 from django.shortcuts import render
 
 
@@ -43,3 +44,8 @@ def donations(request):
         'keys': keys,
     }
     return render(request, 'donation/donations.html', context)
+
+
+def redirect_to_donate(request, donation_id):
+    context = {'donation_id': donation_id}
+    return render(request, 'donate/donate.html', context)
