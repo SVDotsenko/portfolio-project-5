@@ -32,20 +32,19 @@ def donations(request):
             'goal': 100000,
         },
     ]
-    keys = {
-        'pk': os.getenv('STRIPE_PK'),
-        'sk': os.getenv('STRIPE_SK'),
-    }
     for donation in donations:
         donation['percentage'] = donation['raised'] / donation['goal'] * 100
 
     context = {
-        'donations': donations,
-        'keys': keys,
+        'donations': donations
     }
     return render(request, 'donation/donations.html', context)
 
 
 def redirect_to_donate(request, donation_id):
-    context = {'donation_id': donation_id}
+    context = {
+        'donation_id': donation_id,
+        'pk': os.getenv('STRIPE_PK'),
+        'sk': os.getenv('STRIPE_SK')
+    }
     return render(request, 'donate/donate.html', context)
