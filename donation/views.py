@@ -1,6 +1,7 @@
 import os
 from itertools import cycle
 
+from django.conf import settings
 from django.shortcuts import render
 
 
@@ -44,7 +45,7 @@ def donations(request):
 def redirect_to_donate(request, donation_id):
     context = {
         'donation_id': donation_id,
-        'pk': os.getenv('STRIPE_PK'),
-        'sk': os.getenv('STRIPE_SK')
+        'pk': settings.STRIPE_PK,
+        'sk': settings.STRIPE_SK
     }
     return render(request, 'donate/donate.html', context)
