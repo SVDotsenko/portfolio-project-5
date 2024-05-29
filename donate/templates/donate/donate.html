@@ -11,7 +11,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 col-12 mx-auto">
-                    <form class="custom-form donate-form" action="#" method="get" role="form">
+                    <form class="custom-form donate-form" action="{% url 'donat' %}" method="POST" id="payment-form"
+                          role="form">
+                        {% csrf_token %}
                         <h3 class="mb-4">Make a donation</h3>
                         <div class="row">
                             <div class="col-lg-12 col-12">
@@ -83,7 +85,8 @@
                                     <span class="input-group-text" id="basic-addon1">$</span>
 
                                     <input type="text" class="form-control" placeholder="Custom amount"
-                                           aria-label="Username" aria-describedby="basic-addon1" id="custom-amount">
+                                           aria-label="Username" aria-describedby="basic-addon1" id="custom-amount"
+                                           name="custom-amount">
                                 </div>
                             </div>
 
@@ -92,12 +95,17 @@
                             </div>
 
                             <div class="col-lg-6 col-12 mt-2">
-                                <input type="text" name="donation-name" id="donation-name" class="form-control"
-                                       placeholder="Jack Doe" required>
+                                <input type="text" name="first-name" id="first-name" class="form-control"
+                                       placeholder="First name" required>
                             </div>
 
                             <div class="col-lg-6 col-12 mt-2">
-                                <input type="email" name="donation-email" id="donation-email"
+                                <input type="text" name="last-name" id="last-name" class="form-control"
+                                       placeholder="Last name" required>
+                            </div>
+
+                            <div class="col-lg-12 col-12 mt-2">
+                                <input type="email" name="email" id="email"
                                        pattern="[^ @]*@[^ @]*" class="form-control" placeholder="Jackdoe@gmail.com"
                                        required>
                             </div>
@@ -115,7 +123,9 @@
                                     <!-- Pass the client secret to the view so we can get the payment intent id -->
                                     <input type="hidden" value="{{ sk }}" name="sk">
                                 </fieldset>
-                                <button type="submit" class="form-control mt-4">Submit Donation</button>
+                                <button type="submit" class="form-control mt-4" id="submit">
+                                    Submit Donation
+                                </button>
                             </div>
                         </div>
                     </form>
@@ -127,8 +137,8 @@
 
 {% block postloadjs %}
     {{ block.super }}
-    {{ pk|json_script:"id_stripe_public_key" }}
-    {{ sk|json_script:"id_client_secret" }}
+    {{ stripe_public_key|json_script:"id_stripe_public_key" }}
+    {{ client_secret|json_script:"id_client_secret" }}
     <script src="{% static 'js/stripe.js' %}"></script>
-    <script src="{% static 'js/donate.js'%}"></script>
+    <script src="{% static 'js/donate.js' %}"></script>
 {% endblock %}
