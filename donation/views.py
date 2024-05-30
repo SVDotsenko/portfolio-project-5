@@ -45,7 +45,6 @@ def donations(request):
 def redirect_to_donate(request, donation_id):
     context = {
         'donation_id': donation_id,
-        'stripe_public_key': settings.STRIPE_PK,
-        'client_secret': settings.STRIPE_SK
+        'stripe_public_key': settings.STRIPE_PK
     }
     return render(request, 'donate/donate.html', context)
