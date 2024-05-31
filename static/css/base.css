@@ -1,12 +1,4 @@
-/*
-
-TemplateMo 581 Kind Heart Charity
-
-https://templatemo.com/tm-581-kind-heart-charity
-
-*/
-
-
+/*TemplateMo 581 Kind Heart Charity https://templatemo.com/tm-581-kind-heart-charity*/
 
 @font-face {
     font-family: 'Metropolis';
@@ -175,8 +167,7 @@ strong {
   SECTION               
 -----------------------------------------*/
 .section-padding {
-  padding-top: 100px;
-  padding-bottom: 100px;
+  padding-top: 30px;
 }
 
 .section-bg {
@@ -324,7 +315,6 @@ strong {
 
 .navbar-expand-lg .navbar-nav .nav-link.custom-btn {
   color: var(--custom-btn-bg-color);
-  margin-top: 8px;
   padding: 12px 25px;
 }
 
@@ -766,8 +756,8 @@ strong {
   background-position: center;
   background-size: cover;
   position: relative;
-  padding-top: 150px;
-  padding-bottom: 150px;
+  padding-top: 30px;
+  padding-bottom: 100px;
 }
 
 .donate-form {
@@ -775,7 +765,7 @@ strong {
   border-radius: var(--border-radius-medium);
   position: relative;
   overflow: hidden;
-  padding: 50px;
+  padding: 30px;
 }
 
 
@@ -1657,4 +1647,20 @@ blockquote::before {
   .navbar-expand-lg .navbar-nav .nav-link {
     padding: 20px 10px;
   }
+}
+
+.btn:active, .btn:focus {
+  border: transparent;
+}
+
+.form-select, .form-select:active, .form-select:focus{
+  background: var(--section-bg-color);
+  color: var(--p-color);
+  padding: 13px;
+  border: 1px solid #000;
+  appearance: auto;
+}
+
+.form-select:focus{
+  box-shadow: none;
 }
