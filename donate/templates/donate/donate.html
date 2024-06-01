@@ -105,24 +105,36 @@
                                 </div>
                             </div>
 
-                            <div class="col-lg-12 col-12">
-                                <h5 class="mb-1">Personal Info</h5>
-                            </div>
+                            <div class="accordion col-lg-12 col-12" id="accordionExample">
+                                <div class="accordion-item">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapseOne" aria-expanded="true"
+                                            aria-controls="collapseOne">
+                                        <h5 class="mb-1">Personal Info</h5>
+                                    </button>
+                                    <div id="collapseOne" data-bs-parent="#accordionExample"
+                                         class="accordion-collapse collapse {% if not user.email %}show{% endif %}">
+                                        <div class="row">
+                                            <div class="col-lg-6 col-12 mt-2">
+                                                <input type="text" name="first-name" id="first-name"
+                                                       class="form-control"
+                                                       placeholder="First name" value="{{ user.first_name }}" required>
+                                            </div>
 
-                            <div class="col-lg-6 col-12 mt-2">
-                                <input type="text" name="first-name" id="first-name" class="form-control"
-                                       placeholder="First name" value="{{ user.first_name }}" required>
-                            </div>
+                                            <div class="col-lg-6 col-12 mt-2">
+                                                <input type="text" name="last-name" id="last-name" class="form-control"
+                                                       placeholder="Last name" value="{{ user.last_name }}" required>
+                                            </div>
 
-                            <div class="col-lg-6 col-12 mt-2">
-                                <input type="text" name="last-name" id="last-name" class="form-control"
-                                       placeholder="Last name" value="{{ user.last_name }}" required>
-                            </div>
-
-                            <div class="col-lg-12 col-12 mt-2">
-                                <input type="email" name="email" id="email" value="{{ user.email }}"
-                                       pattern="[^ @]*@[^ @]*" class="form-control" placeholder="Jackdoe@gmail.com"
-                                       required>
+                                            <div class="col-lg-12 col-12 mt-2">
+                                                <input type="email" name="email" id="email" value="{{ user.email }}"
+                                                       pattern="[^ @]*@[^ @]*" class="form-control"
+                                                       placeholder="Jackdoe@gmail.com"
+                                                       required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
 
                             <div class="col-lg-12 col-12">
