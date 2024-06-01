@@ -1,22 +1,43 @@
 import stripe
 from django.conf import settings
+from django.contrib.auth import get_user
 from django.shortcuts import redirect
+
+from donation.models import Donation
+
+
+def update_user_details(request):
+    user = get_user(request)
+    user.first_name = request.POST['first-name']
+    user.last_name = request.POST['last-name']
+    user.email = request.POST['email']
+    user.save()
+
+
+def make_stripe_payment(request):
+    stripe.api_key = settings.STRIPE_SK
+    user = get_user(request)
+    customer = stripe.Customer.create(
+        email=user.email,
+        name=user.first_name,
+        source=request.POST['stripeToken']
+    )
+
+    stripe.Charge.create(
+        customer=customer,
+        amount=int(request.POST['custom-amount']) * 100,
+        currency='usd',
+        description=Donation.objects.get(id=request.POST['cause']).title
+    )
+
+
+# def save_transaction(request):
 
 
 def donate(request):
     if request.method == 'POST':
-        stripe.api_key = settings.STRIPE_SK
-        customer = stripe.Customer.create(
-            email=request.POST['email'],
-            name=request.POST['first-name'],
-            source=request.POST['stripeToken']
-        )
-
-        stripe.Charge.create(
-            customer=customer,
-            amount=int(request.POST['custom-amount']) * 100,
-            currency='usd',
-            description="Donation"
-        )
+        update_user_details(request)
+        make_stripe_payment(request)
+        # save_transaction(request)
 
     return redirect('donations')
