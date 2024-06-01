@@ -1,10 +1,11 @@
 import os
-import random
 from itertools import cycle
 
 from django.conf import settings
+from django.db.models import Sum
 from django.shortcuts import render
 
+from donate.models import Payment
 from donation.models import Donation
 
 
@@ -14,7 +15,9 @@ def donations(request):
     donations = Donation.objects.all()
     for donation in donations:
         donation.image = IMAGE_DIR + '/' + next(image_cycle)
-        donation.raised = random.randint(1, donation.goal)
+        donation.raised = (Payment.objects.filter(donation=donation).aggregate(
+            Sum('stripe_payment__amount'))['stripe_payment__amount__sum']
+                           or 0) / 100
         donation.percentage = donation.raised / donation.goal * 100
 
     context = {

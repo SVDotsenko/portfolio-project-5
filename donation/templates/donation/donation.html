@@ -16,7 +16,7 @@
                 <div class="d-flex align-items-center my-2">
                     <p class="mb-0">
                         <strong>Raised:</strong>
-                        ${{ donation.raised|intcomma }}
+                        ${{ donation.raised|floatformat:0|intcomma }}
                     </p>
 
                     <p class="ms-auto mb-0">
