@@ -2,7 +2,7 @@ import stripe
 from django.conf import settings
 from django.contrib.auth import get_user
 from django.shortcuts import redirect
-
+from donate.models import StripeTransaction, Payment
 from donation.models import Donation
 
 
@@ -14,6 +14,17 @@ def update_user_details(request):
     user.save()
 
 
+def save_transaction(request, charge):
+    Payment.objects.create(
+        user=get_user(request),
+        donation=Donation.objects.get(id=request.POST['cause']),
+        stripe_payment=StripeTransaction.objects.create(
+            stripe_charge_id=charge['id'],
+            amount=charge['amount'],
+        )
+    )
+
+
 def make_stripe_payment(request):
     stripe.api_key = settings.STRIPE_SK
     user = get_user(request)
@@ -23,7 +34,7 @@ def make_stripe_payment(request):
         source=request.POST['stripeToken']
     )
 
-    stripe.Charge.create(
+    return stripe.Charge.create(
         customer=customer,
         amount=int(request.POST['custom-amount']) * 100,
         currency='usd',
@@ -31,13 +42,10 @@ def make_stripe_payment(request):
     )
 
 
-# def save_transaction(request):
-
-
 def donate(request):
     if request.method == 'POST':
         update_user_details(request)
-        make_stripe_payment(request)
-        # save_transaction(request)
+        charge = make_stripe_payment(request)
+        save_transaction(request, charge)
 
     return redirect('donations')
