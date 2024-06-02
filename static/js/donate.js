@@ -11,3 +11,11 @@ customAmountInput.addEventListener('keypress', e => {
     const char = String.fromCharCode(e.which);
     (!(/[0-9]/.test(char)) || (customAmountInput.value.length === 0 && char === '0')) && e.preventDefault();
 });
+
+window.onload = () => {
+    if (document.getElementById('email').value) {
+        setTimeout(() => new bootstrap.Collapse(document.getElementById('collapseOne'), {
+            toggle: false
+        }).hide(), 2000);
+    }
+};

@@ -28,17 +28,16 @@ def save_transaction(request, charge):
 def make_stripe_payment(request):
     stripe.api_key = settings.STRIPE_SK
     user = get_user(request)
-    customer = stripe.Customer.create(
-        email=user.email,
-        name=user.first_name,
-        source=request.POST['stripeToken']
-    )
 
     return stripe.Charge.create(
-        customer=customer,
         amount=int(request.POST['custom-amount']) * 100,
         currency='usd',
-        description=Donation.objects.get(id=request.POST['cause']).title
+        description=Donation.objects.get(id=request.POST['cause']).title,
+        customer=stripe.Customer.create(
+            email=user.email,
+            name=user.username,
+            source=request.POST['stripeToken']
+        )
     )
 
 
