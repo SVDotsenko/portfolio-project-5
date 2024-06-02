@@ -12,7 +12,6 @@ if os.path.isfile('env.py'):
 # you may need to change it in case you want to test the production environment
 # locally
 DEBUG = os.environ.get('DJANGO_DEBUG', 'True') == 'True'
-LOGIN_REDIRECT_URL = 'books'
 ROOT_URLCONF = 'charity.urls'
 WSGI_APPLICATION = 'charity.wsgi.application'
 SITE_ID = 1

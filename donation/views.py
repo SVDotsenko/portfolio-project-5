@@ -2,6 +2,7 @@ import os
 from itertools import cycle
 
 from django.conf import settings
+from django.contrib.auth.decorators import login_required
 from django.db.models import Sum
 from django.shortcuts import render
 
@@ -26,6 +27,7 @@ def donations(request):
     return render(request, 'donation/donations.html', context)
 
 
+@login_required
 def redirect_to_donate(request, donation_id):
     context = {
         'donation_id': donation_id,

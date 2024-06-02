@@ -24,4 +24,5 @@ urlpatterns = [
     path('', donations, name='donations'),
     path("donate/", include("donation.urls")),
     path("donat/", include("donate.urls")),
+    path("accounts/", include("allauth.urls")),
 ]
