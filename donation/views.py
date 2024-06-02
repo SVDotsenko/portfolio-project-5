@@ -35,3 +35,17 @@ def redirect_to_donate(request, donation_id):
         'stripe_public_key': settings.STRIPE_PK
     }
     return render(request, 'donate/donate.html', context)
+
+
+def history(request):
+    context = {
+        'payments': Payment.objects.all().values(
+            'id',
+            'user__username',
+            'donation__title',
+            'stripe_payment__amount',
+            'stripe_payment__timestamp',
+            'stripe_payment__stripe_charge_id'
+        )
+    }
+    return render(request, 'donation/history.html', context)

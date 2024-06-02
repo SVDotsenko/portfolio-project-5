@@ -47,4 +47,4 @@ def donate(request):
         charge = make_stripe_payment(request)
         save_transaction(request, charge)
 
-    return redirect('donations')
+    return redirect('history')

@@ -22,7 +22,7 @@ from donation.views import donations
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', donations, name='donations'),
-    path("donate/", include("donation.urls")),
-    path("donat/", include("donate.urls")),
-    path("accounts/", include("allauth.urls")),
+    path('', include('donation.urls')),
+    path('donat/', include('donate.urls')),
+    path('accounts/', include('allauth.urls')),
 ]

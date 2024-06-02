@@ -6,12 +6,7 @@ import dj_database_url
 if os.path.isfile('env.py'):
     import env
 
-# This syntax allow you never to have to worry about the value of the
-# DJANGO_DEBUG environment variable.
-# while development, it is allways True, while production it is allways False
-# you may need to change it in case you want to test the production environment
-# locally
-DEBUG = os.environ.get('DJANGO_DEBUG', 'True') == 'True'
+DEBUG = 'DEVELOPMENT' in os.environ
 ROOT_URLCONF = 'charity.urls'
 WSGI_APPLICATION = 'charity.wsgi.application'
 SITE_ID = 1

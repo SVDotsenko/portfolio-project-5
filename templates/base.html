@@ -1,8 +1,7 @@
 {% load static %}
 
 {% url 'donations' as home_url %}
-{% url 'account_login' as login_url %}
-{% url 'account_signup' as signup_url %}
+{% url 'history' as history_url %}
 {% url 'account_logout' as logout_url %}
 
 <!DOCTYPE html>
@@ -47,11 +46,10 @@
                     <a class="nav-link {% if request.path == home_url %}active" aria-current="page{% endif %}"
                        href="{% url 'donations' %}"> Home </a>
                 </li>
-
-{#                <li class="nav-item">#}
-{#                    <a class="nav-link" href="#section_2">Donation History</a>#}
-{#                </li>#}
-
+                <li class="nav-item">
+                    <a class="nav-link {% if request.path == history_url %}active" aria-current="page{% endif %}"
+                       href="{% url 'history' %}"> Donation History </a>
+                </li>
             </ul>
             {% if not user.is_anonymous %}
                 <ul class="navbar-nav">
