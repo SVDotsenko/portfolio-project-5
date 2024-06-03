@@ -1,6 +1,3 @@
-copy card number to clipboard before entering the donation page, and show tooltip
-add tooltips
-
 # Kind Heart Charity
 
 Kind Heart Charity is a web-based application designed to facilitate and manage the process of charitable donations. The application is built using Django and JavaScript, with package management handled by pip for Python.  The application allows users to browse through various causes and make donations. Each donation is associated with its respective cause. Users can also track their donation history, providing a dynamic and interactive charity experience.  The application has two main user roles: User and Administrator. A User can browse the causes, make donations, and track their donation history. An Administrator, on the other hand, has the ability to add, delete, and modify causes in the application, providing comprehensive management of the charity's causes.  The application ensures secure user authentication and role-based access to various features. It also includes robust error handling and user notifications for a smooth user experience.  The project uses a PostgreSQL database for data storage, managed through Django's ORM.  The application's user interface is designed to be intuitive and user-friendly, ensuring a seamless user experience.

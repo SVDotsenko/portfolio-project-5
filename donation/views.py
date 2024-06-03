@@ -18,7 +18,7 @@ def donations(request):
         donation.image = IMAGE_DIR + '/' + next(image_cycle)
         donation.raised = (Payment.objects.filter(donation=donation).aggregate(
             Sum('stripe_payment__amount'))['stripe_payment__amount__sum']
-                           or 0) / 100
+                           or 0)
         donation.percentage = donation.raised / donation.goal * 100
 
     context = {

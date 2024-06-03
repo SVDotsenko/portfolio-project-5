@@ -78,6 +78,9 @@ body {
     font-family: var(--body-font-family);
 }
 
+html {
+    overflow-y: scroll;
+}
 
 /*---------------------------------------
   TYPOGRAPHY               

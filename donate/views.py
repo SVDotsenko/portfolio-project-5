@@ -2,6 +2,7 @@ import stripe
 from django.conf import settings
 from django.contrib.auth import get_user
 from django.shortcuts import redirect
+
 from donate.models import StripeTransaction, Payment
 from donation.models import Donation
 
@@ -20,7 +21,7 @@ def save_transaction(request, charge):
         donation=Donation.objects.get(id=request.POST['cause']),
         stripe_payment=StripeTransaction.objects.create(
             stripe_charge_id=charge['id'],
-            amount=charge['amount'],
+            amount=charge['amount'] / 100,
         )
     )
 
