@@ -2,6 +2,7 @@
 
 {% url 'donations' as home_url %}
 {% url 'history' as history_url %}
+{% url 'form' as form_url %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -28,7 +29,7 @@
     <div class="container">
         <a class="navbar-brand" href="index.html">
             <img src="{% static 'images/logo.png' %}" class="logo img-fluid" alt="Kind Heart Charity">
-            <span>Kind Heart Charity<small>Non-profit Organization</small></span>
+            <span class="d-none d-sm-inline-block">Kind Heart Charity<small>Non-profit Organization</small></span>
         </a>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -45,6 +46,10 @@
                 <li class="nav-item">
                     <a class="nav-link {% if request.path == history_url %}active" aria-current="page{% endif %}"
                        href="{% url 'history' %}"> Donation History </a>
+                </li>
+                <li class="nav-item {% if not user.is_superuser %}invisible{% endif %}">
+                    <a class="nav-link {% if request.path == form_url %}active" aria-current="page{% endif %}"
+                       href="{% url 'form' %}"> Create Donation Card </a>
                 </li>
             </ul>
             <ul class="navbar-nav {% if user.is_anonymous %}invisible{% endif %}">

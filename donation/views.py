@@ -49,3 +49,7 @@ def history(request):
         )
     }
     return render(request, 'donation/history.html', context)
+
+
+def form(request):
+    return render(request, 'donation/form.html')

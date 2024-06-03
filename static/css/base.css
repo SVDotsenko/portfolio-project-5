@@ -171,6 +171,13 @@ strong {
 -----------------------------------------*/
 .section-padding {
     padding-top: 30px;
+    height: calc(100vh - 102px);
+}
+
+@media (min-width: 992px) {
+    .section-padding {
+        height: calc(100vh - 90px);
+    }
 }
 
 .section-bg {
@@ -710,15 +717,17 @@ strong {
     overflow: hidden;
 }
 
-.volunteer-section::after {
-    content: "";
-    background: var(--primary-color);
-    border-radius: 50%;
-    position: absolute;
-    bottom: -110px;
-    right: -80px;
-    width: 350px;
-    height: 350px;
+@media (min-width: 992px) {
+    .volunteer-section::after {
+        content: "";
+        background: var(--primary-color);
+        border-radius: 50%;
+        position: absolute;
+        bottom: -110px;
+        right: -80px;
+        width: 350px;
+        height: 350px;
+    }
 }
 
 .volunteer-form {
@@ -1420,11 +1429,6 @@ blockquote::before {
 
     h6 {
         font-size: 18px;
-    }
-
-    .section-padding {
-        padding-top: 50px;
-        padding-bottom: 50px;
     }
 
     .hero-form {
