@@ -28,7 +28,8 @@ def donations(request):
         donation.percentage = donation.raised / donation.goal * 100
 
     context = {
-        'donations': donations
+        'donations': sorted(donations, key=lambda d: d.goal - d.raised,
+                            reverse=True)
     }
     return render(request, 'donation/donations.html', context)
 

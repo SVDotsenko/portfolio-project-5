@@ -205,7 +205,6 @@ strong {
 .custom-block-wrap {
     background: var(--white-color);
     border-radius: var(--border-radius-medium);
-    position: relative;
     overflow: hidden;
     transition: all 0.5s;
 }
@@ -218,18 +217,18 @@ strong {
     padding: 30px;
 }
 
-.custom-block-image {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
 .custom-block .custom-btn {
     border-radius: 0;
     display: block;
 }
 
+.custom-block-body h5 {
+    height: 60px;
+}
+
+h5 + p {
+    height: 100px;
+}
 
 /*---------------------------------------
   PROGRESS BAR               
