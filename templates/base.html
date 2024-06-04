@@ -2,7 +2,7 @@
 
 {% url 'donations' as home_url %}
 {% url 'history' as history_url %}
-{% url 'form' as form_url %}
+{% url 'create_donation' as create_url %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -48,8 +48,8 @@
                        href="{% url 'history' %}"> Donation History </a>
                 </li>
                 <li class="nav-item {% if not user.is_superuser %}invisible{% endif %}">
-                    <a class="nav-link {% if request.path == form_url %}active" aria-current="page{% endif %}"
-                       href="{% url 'form' %}"> Create Donation Card </a>
+                    <a class="nav-link {% if request.path == create_url %}active" aria-current="page{% endif %}"
+                       href="{% url 'create_donation' %}"> Create Donation Card </a>
                 </li>
             </ul>
             <ul class="navbar-nav {% if user.is_anonymous %}invisible{% endif %}">
