@@ -3,7 +3,8 @@
         <form action="{% url 'update_donation' donation.id %}" class="w-50">
             <button type="submit" class="custom-btn btn w-100">Edit</button>
         </form>
-        <form action="{% url 'delete_donation' donation.id %}" class="w-50">
+        <form action="{% url 'delete_donation' donation.id %}" class="w-50" method="post">
+            {% csrf_token %}
             <button type="submit" class="custom-btn btn w-100">Delete</button>
         </form>
     </div>

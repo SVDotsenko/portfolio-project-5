@@ -7,6 +7,7 @@ if os.path.isfile('env.py'):
     import env
 
 DEBUG = 'DEVELOPMENT' in os.environ
+LOGIN_REDIRECT_URL = 'donations'
 ROOT_URLCONF = 'charity.urls'
 WSGI_APPLICATION = 'charity.wsgi.application'
 SITE_ID = 1

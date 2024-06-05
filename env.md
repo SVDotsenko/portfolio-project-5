@@ -6,6 +6,7 @@ copy card number to clipboard before entering the donation page, and show toolti
 add tooltips
 limit the number of characters in the description and title
 
+? in the url. figure out how to remove it
 
 clean css, html unused styles
 
