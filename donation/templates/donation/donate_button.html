@@ -1,7 +1,12 @@
 {% if user.is_superuser %}
-    <form action="{% url 'update_donation' donation.id %}">
-        <button type="submit" class="custom-btn btn w-100">Edit Donation</button>
-    </form>
+    <div class="d-flex gap-1">
+        <form action="{% url 'update_donation' donation.id %}" class="w-50">
+            <button type="submit" class="custom-btn btn w-100">Edit</button>
+        </form>
+        <form action="{% url 'delete_donation' donation.id %}" class="w-50">
+            <button type="submit" class="custom-btn btn w-100">Delete</button>
+        </form>
+    </div>
 {% else %}
     <form action="{% url 'redirect_to_donate' donation.id %}">
         <button type="submit" class="custom-btn btn w-100">Donate now</button>

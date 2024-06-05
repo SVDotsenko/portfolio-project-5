@@ -9,4 +9,6 @@ urlpatterns = [
     path('create/', DonationCard.as_view(), name='create_donation'),
     path('update/<int:donation_id>/', DonationCard.as_view(),
          name='update_donation'),
+    path('delete/<int:donation_id>/', views.delete_donation,
+         name='delete_donation'),
 ]

@@ -78,3 +78,9 @@ class DonationCard(View):
             return redirect('donations')
 
         print(donation_form.errors)
+
+
+def delete_donation(request, donation_id):
+    donation = get_object_or_404(Donation, id=donation_id)
+    donation.delete()
+    return redirect('donations')
