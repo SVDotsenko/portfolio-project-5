@@ -60,11 +60,11 @@ def history(request):
 
 class DonationCard(View):
     def get(self, request, donation_id=-1):
-        if donation_id >= 0:
-            donation = Donation.objects.get(id=donation_id)
-            return render(request, 'donation/form.html',
-                          {'donation': donation})
-        return render(request, 'donation/form.html')
+        if donation_id < 0:
+            return render(request, 'donation/form.html')
+
+        return render(request, 'donation/form.html',
+                      {'donation': Donation.objects.get(id=donation_id)})
 
     def post(self, request, donation_id=-1):
         if donation_id < 0:

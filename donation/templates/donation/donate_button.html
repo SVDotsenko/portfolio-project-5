@@ -1,1 +1,9 @@
-<a href="{% url 'redirect_to_donate' donation.id %}" class="custom-btn btn">Donate now</a>
+{% if user.is_superuser %}
+    <form action="{% url 'update_donation' donation.id %}">
+        <button type="submit" class="custom-btn btn w-100">Edit Donation</button>
+    </form>
+{% else %}
+    <form action="{% url 'redirect_to_donate' donation.id %}">
+        <button type="submit" class="custom-btn btn w-100">Donate now</button>
+    </form>
+{% endif %}

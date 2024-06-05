@@ -9,23 +9,28 @@
                 <div class="col-lg-6 col-12">
                     <h2 class="text-white mb-4 text-center">Donation Card</h2>
 
-                    <form class="custom-form volunteer-form mb-5 mb-lg-0" action="{% url 'create_donation' %}"
-                          method="post">
+                    <form class="custom-form volunteer-form mb-5 mb-lg-0" method="post"
+                            {% if donation.id %}
+                          action="{% url 'update_donation' donation.id %}"
+                            {% else %}
+                          action="{% url 'create_donation' %}"
+                            {% endif %}
+                    >
                         {% csrf_token %}
                         <div class="row">
                             <div class="col-lg-8 col-12">
                                 <input type="text" name="title" id="title" class="form-control" placeholder="Title"
-                                       required>
+                                       value="{{ donation.title }}" required>
                             </div>
 
                             <div class="col-lg-4 col-12">
                                 <input type="number" min="100" name="goal" id="custom-amount"
-                                       class="form-control" placeholder="Goal" required>
+                                       class="form-control" placeholder="Goal" value="{{ donation.goal }}" required>
                             </div>
                         </div>
 
                         <textarea name="description" rows="3" class="form-control" id="volunteer-message"
-                                  placeholder="Description"></textarea>
+                                  placeholder="Description" required>{{ donation.description }}</textarea>
 
                         <button type="submit" class="form-control">Submit</button>
                     </form>

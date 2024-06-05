@@ -1,10 +1,11 @@
-change picture on donate page
 style login form
+change picture on donate page
 dollar sign left from input goal
-make working new donation form
 think about styling in history page
 copy card number to clipboard before entering the donation page, and show tooltip
 add tooltips
+limit the number of characters in the description and title
+
 
 clean css, html unused styles
 
