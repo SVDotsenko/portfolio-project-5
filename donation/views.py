@@ -35,6 +35,9 @@ def donations(request):
 
 @login_required
 def redirect_to_donate(request, donation_id):
+    if request.user.is_superuser:
+        return redirect('donations')
+
     context = {
         'donation_id': donation_id,
         'donations': Donation.objects.all(),
