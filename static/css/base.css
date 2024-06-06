@@ -223,11 +223,16 @@ strong {
 }
 
 .custom-block-body h5 {
-    height: 60px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 h5 + p {
-    height: 100px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 /*---------------------------------------
