@@ -16,6 +16,6 @@ window.onload = () => {
     if (document.getElementById('email').value) {
         setTimeout(() => new bootstrap.Collapse(document.getElementById('collapseOne'), {
             toggle: false
-        }).hide(), 5000);
+        }).hide(), 4000);
     }
 };
