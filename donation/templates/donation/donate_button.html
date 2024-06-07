@@ -10,6 +10,14 @@
     </div>
 {% else %}
     <form action="{% url 'redirect_to_donate' donation.id %}">
-        <button type="submit" class="custom-btn btn w-100">Donate now</button>
+        {% if donation.raised < donation.goal %}
+            <button type="submit" class="custom-btn btn w-100">
+                Donate now
+            </button>
+        {% else %}
+            <button type="submit" class="custom-btn btn w-100" disabled>
+                Goal reached
+            </button>
+        {% endif %}
     </form>
 {% endif %}

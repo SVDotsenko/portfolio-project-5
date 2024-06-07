@@ -337,6 +337,11 @@ h5 + p {
     color: var(--white-color);
 }
 
+.custom-btn:disabled {
+    background: var(--border-color);
+    border-color: transparent;
+}
+
 .custom-border-btn {
     background: transparent;
     border: 2px solid var(--custom-btn-bg-color);
@@ -771,17 +776,19 @@ h5 + p {
     padding-top: 30px;
 }
 
-.donate-section::after {
-    content: "";
-    background: url('../images/different-people-doing-volunteer-work.jpg') no-repeat center center;
-    background-size: cover;
-    opacity: 0.3;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    position: absolute;
-    z-index: -1;
+@media (min-width: 576px) {
+    .donate-section::after {
+        content: "";
+        background: url('../images/different-people-doing-volunteer-work.jpg') no-repeat center center;
+        background-size: cover;
+        opacity: 0.3;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        position: absolute;
+        z-index: -1;
+    }
 }
 
 

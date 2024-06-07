@@ -1,15 +1,16 @@
-style login form
-change picture on donate page
+если были пожертвования нельзя удалять.
+попап для удаления.
 dollar sign left from input goal
 think about styling in history page
 copy card number to clipboard before entering the donation page, and show tooltip
 add tooltips
-limit the number of characters in the description and title
+on history page add section with donators
+add spiner to donation button
+validation with toottips
 
 ? in the url. figure out how to remove it
 
 clean css, html unused styles
-
 
 continue from 44 lesson
 
