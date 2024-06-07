@@ -60,7 +60,10 @@ def history(request):
             'stripe_payment__amount',
             'stripe_payment__timestamp',
             'stripe_payment__stripe_charge_id'
-        )
+        ).order_by('-stripe_payment__timestamp'),
+        'donors': (Payment.objects.values('user__username')
+                   .annotate(amount=Sum('stripe_payment__amount'))
+                   .order_by('-amount')),
     }
     return render(request, 'donation/history.html', context)
 

@@ -3,36 +3,62 @@
 {% block content %}
     <section class="section-padding">
         <div class="container">
-            <div class="table-responsive">
-                <table class="table table-striped table-bordered">
-                    <thead>
-                    <tr>
-                        <th>
-                            <span class="d-none d-md-inline-block">Payment</span> ID
-                            <span class="d-none d-lg-inline-block"> / Stripe Charge ID</span>
-                        </th>
-                        <th class="d-none d-sm-block">Username</th>
-                        <th><span class="d-none d-sm-inline-block">Donation</span> Title</th>
-                        <th>$ <span class="d-none d-md-inline-block">Amount</span></th>
-                        <th class="d-none d-md-block">Timestamp</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {% for payment in payments %}
+            <div class="row">
+                <div class="col-lg-10">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered">
+                            <thead>
+                            <tr>
+                                <th>
+                                    <span class="d-none d-md-inline-block">Payment</span> ID
+                                    <span class="d-none d-lg-inline-block"> / Stripe Charge ID</span>
+                                </th>
+                                <th class="d-none d-sm-block">Username</th>
+                                <th><span class="d-none d-sm-inline-block">Donation</span> Title</th>
+                                <th>$ <span class="d-none d-md-inline-block">Amount</span></th>
+                                <th class="d-none d-md-block">Timestamp</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for payment in payments %}
+                                <tr>
+                                    <td>{{ payment.id }} -
+                                        <span class="d-none d-lg-inline-block">
+                                            {{ payment.stripe_payment__stripe_charge_id }}
+                                        </span>
+                                    </td>
+                                    <td class="d-none d-sm-block">{{ payment.user__username }}</td>
+                                    <td>{{ payment.donation__title }}</td>
+                                    <td>{{ payment.stripe_payment__amount }}</td>
+                                    <td class="d-none d-md-block">{{ payment.stripe_payment__timestamp }}</td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <table class="table table-bordered">
+                        <thead>
                         <tr>
-                            <td>{{ payment.id }}
-                                <span class="d-none d-lg-inline-block">
-                                    . {{ payment.stripe_payment__stripe_charge_id }}
-                                </span>
-                            </td>
-                            <td class="d-none d-sm-block">{{ payment.user__username }}</td>
-                            <td>{{ payment.donation__title }}</td>
-                            <td>{{ payment.stripe_payment__amount }}</td>
-                            <td class="d-none d-md-block">{{ payment.stripe_payment__timestamp }}</td>
+                            <th>#</th>
+                            <th>Username</th>
+                            <th>Total</th>
                         </tr>
-                    {% endfor %}
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                        {% for donor in donors %}
+                            <tr {% if request.user.username == donor.user__username %}
+                                class="table-secondary"
+                            {% endif %}>
+                                <td>{{ forloop.counter }}</td>
+                                <td>{{ donor.user__username }}</td>
+                                <td>{{ donor.amount }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </section>
