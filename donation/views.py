@@ -28,7 +28,7 @@ def donations(request):
         donation.percentage = donation.raised / donation.goal * 100
 
     context = {
-        'donations': sorted(donations, key=lambda d: d.raised)
+        'donations': sorted(donations, key=lambda d: d.raised - d.goal)
     }
     return render(request, 'donation/donations.html', context)
 
@@ -38,9 +38,14 @@ def redirect_to_donate(request, donation_id):
     if request.user.is_superuser:
         return redirect('donations')
 
+    donations = Donation.objects.all()
+    for donation in donations:
+        donation.raised = raised(donation)
+
     context = {
         'donation_id': donation_id,
-        'donations': Donation.objects.all(),
+        'donations': [donation for donation in donations if
+                      donation.raised < donation.goal],
         'stripe_public_key': settings.STRIPE_PK
     }
     return render(request, 'donate/donate.html', context)
