@@ -4,26 +4,49 @@
             <button type="submit" class="custom-btn btn w-100">Edit</button>
         </form>
         {% if donation.raised %}
-            <form action="{% url 'delete_donation' donation.id %}" class="w-50" method="post" data-toggle="tooltip"
+            <form class="w-50" method="post" data-toggle="tooltip"
                   title="Card cannot be deleted because donations have already been made to it">
-                {% csrf_token %}
                 <button type="submit" class="custom-btn btn w-100" disabled>
                     Delete
                 </button>
             </form>
         {% else %}
-            <form action="{% url 'delete_donation' donation.id %}" class="w-50" method="post">
-                {% csrf_token %}
-                <button type="submit" class="custom-btn btn w-100">Delete</button>
-            </form>
+            <button class="custom-btn btn w-50" data-bs-toggle="modal" data-bs-target="#{{ donation.id }}"
+                    type="submit">
+                Delete
+            </button>
         {% endif %}
     </div>
 {% else %}
     <form action="{% url 'redirect_to_donate' donation.id %}">
         {% if donation.raised < donation.goal %}
-            <button type="submit" class="custom-btn btn w-100"> Donate now</button>
+            <button type="submit" class="custom-btn btn w-100">Donate now</button>
         {% else %}
-            <button type="submit" class="custom-btn btn w-100" disabled> Goal reached</button>
+            <button type="submit" class="custom-btn btn w-100" disabled>Goal reached</button>
         {% endif %}
     </form>
 {% endif %}
+
+<div class="modal fade" id="{{ donation.id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+     aria-labelledby="modalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 id="modalCenterTitle">Deleting action</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>You are going to delete donation <b>{{ donation.title|title }}</b>.</p>
+                <p>This action cannot be undone!</p>
+                <p>Are you sure you want to proceed deleting?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                <form action="{% url 'delete_donation' donation.id %}" class="d-inline" method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger">Yes</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

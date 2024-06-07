@@ -10,4 +10,24 @@
             </div>
         </div>
     </section>
+    <script>
+        window.onload = () => {
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const card = entry.target.closest('.col-lg-4.col-md-6.col-12.mb-4');
+                        card.classList.add('fade-out');
+                        setTimeout(() => card.remove(), 6000);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            });
+
+            const cards = document.querySelectorAll('.col-lg-4.col-md-6.col-12.mb-4');
+            cards.forEach(card => {
+                const button = card.querySelector('button');
+                (button && button.textContent.trim() === "Goal reached") && observer.observe(button);
+            });
+        };
+    </script>
 {% endblock %}

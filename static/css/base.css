@@ -1710,3 +1710,20 @@ blockquote::before {
     outline: none;
     box-shadow: none;
 }
+
+body.modal-open {
+    padding-right: 0 !important;
+}
+
+.fade-out {
+    animation: fadeOut 6s forwards;
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}

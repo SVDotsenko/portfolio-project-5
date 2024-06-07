@@ -1,14 +1,9 @@
-если были пожертвования нельзя удалять.
-попап для удаления.
-dollar sign left from input goal
-think about styling in history page
-copy card number to clipboard before entering the donation page, and show tooltip
 add tooltips
-on history page add section with donators
-add spiner to donation button
 validation with toottips
-
-? in the url. figure out how to remove it
+copy card number to clipboard before entering the donation page, and show tooltip
+add spiner to donation button
+on history page add section with donators
+dollar sign left from input goal
 
 clean css, html unused styles
 

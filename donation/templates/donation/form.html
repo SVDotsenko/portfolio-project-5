@@ -24,8 +24,8 @@
                             </div>
 
                             <div class="col-lg-4 col-12">
-                                <input type="number" min="100" name="goal" id="custom-amount"
-                                       class="form-control" placeholder="Goal" value="{{ donation.goal }}" required>
+                                <input type="number" min="100" name="goal" id="custom-amount" required
+                                       class="form-control" placeholder="Goal" value="{{ donation.goal|default:100 }}">
                             </div>
                         </div>
 
