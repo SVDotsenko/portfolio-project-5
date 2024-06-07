@@ -3,7 +3,9 @@ from itertools import cycle
 
 from django.conf import settings
 from django.contrib.auth.decorators import login_required
-from django.db.models import Sum
+from django.contrib.auth.models import User
+from django.db.models import Sum, Value
+from django.db.models.functions import Coalesce
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views import View
 
@@ -61,8 +63,9 @@ def history(request):
             'stripe_payment__timestamp',
             'stripe_payment__stripe_charge_id'
         ).order_by('-stripe_payment__timestamp'),
-        'donors': (Payment.objects.values('user__username')
-                   .annotate(amount=Sum('stripe_payment__amount'))
+        'donors': (User.objects.annotate(
+            amount=Coalesce(Sum('payment__stripe_payment__amount'), Value(0)))
+                   .values('username', 'amount')
                    .order_by('-amount')),
     }
     return render(request, 'donation/history.html', context)

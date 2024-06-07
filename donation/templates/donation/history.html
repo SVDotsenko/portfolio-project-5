@@ -48,11 +48,11 @@
                         </thead>
                         <tbody>
                         {% for donor in donors %}
-                            <tr {% if request.user.username == donor.user__username %}
+                            <tr {% if request.user.username == donor.username %}
                                 class="table-secondary"
                             {% endif %}>
                                 <td>{{ forloop.counter }}</td>
-                                <td>{{ donor.user__username }}</td>
+                                <td>{{ donor.username }}</td>
                                 <td>{{ donor.amount }}</td>
                             </tr>
                         {% endfor %}

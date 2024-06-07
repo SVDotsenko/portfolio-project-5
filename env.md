@@ -4,6 +4,7 @@ copy card number to clipboard before entering the donation page, and show toolti
 add spiner to donation button
 on history page add section with donators
 dollar sign left from input goal
+on the submit button white text
 
 clean css, html unused styles
 
