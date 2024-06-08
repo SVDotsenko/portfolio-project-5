@@ -2,6 +2,7 @@ import os
 from itertools import cycle
 
 from django.conf import settings
+from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.db.models import Sum, Value
@@ -82,18 +83,28 @@ class DonationCard(View):
     def post(self, request, donation_id=-1):
         if donation_id < 0:
             donation_form = DonationForm(request.POST)
-        else:
-            donation = get_object_or_404(Donation, id=donation_id)
-            donation_form = DonationForm(request.POST, instance=donation)
+            if donation_form.is_valid():
+                title = donation_form.cleaned_data.get('title', '')
+                message = f'Donation {title.capitalize()} created successfully'
+                donation_form.save()
+                messages.add_message(request, messages.SUCCESS, message)
+                return redirect('donations')
 
+        donation = get_object_or_404(Donation, id=donation_id)
+        donation_form = DonationForm(request.POST, instance=donation)
         if donation_form.is_valid():
+            title = donation_form.cleaned_data.get('title', '')
+            message = f'Donation {title.capitalize()} updated successfully'
             donation_form.save()
+            messages.add_message(request, messages.SUCCESS, message)
             return redirect('donations')
 
-        print(donation_form.errors)
+        messages.add_message(request, messages.ERROR, donation_form.errors)
 
 
 def delete_donation(request, donation_id):
     donation = get_object_or_404(Donation, id=donation_id)
     donation.delete()
+    message = f'Donation {donation.title.capitalize()} deleted successfully'
+    messages.add_message(request, messages.SUCCESS, message)
     return redirect('donations')

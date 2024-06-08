@@ -22,9 +22,9 @@
                             <tbody>
                             {% for payment in payments %}
                                 <tr>
-                                    <td>{{ payment.id }} -
+                                    <td>{{ payment.id }}
                                         <span class="d-none d-lg-inline-block">
-                                            {{ payment.stripe_payment__stripe_charge_id }}
+                                             - {{ payment.stripe_payment__stripe_charge_id }}
                                         </span>
                                     </td>
                                     <td class="d-none d-sm-block">{{ payment.user__username }}</td>
@@ -38,7 +38,7 @@
                     </div>
                 </div>
                 <div class="col-lg-2">
-                    <table class="table table-bordered">
+                    <table class="table table-bordered {% if not user.is_authenticated %}table-striped{% endif %}">
                         <thead>
                         <tr>
                             <th>#</th>
@@ -48,7 +48,7 @@
                         </thead>
                         <tbody>
                         {% for donor in donors %}
-                            <tr {% if request.user.username == donor.username %}
+                            <tr {% if user.username == donor.username %}
                                 class="table-secondary"
                             {% endif %}>
                                 <td>{{ forloop.counter }}</td>

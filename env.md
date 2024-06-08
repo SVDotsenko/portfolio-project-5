@@ -1,10 +1,7 @@
-add tooltips
-validation with toottips
-copy card number to clipboard before entering the donation page, and show tooltip
-add spiner to donation button
+add spinner to donation button
+validation with tooltips
 on history page add section with donators
 dollar sign left from input goal
-on the submit button white text
 
 clean css, html unused styles
 

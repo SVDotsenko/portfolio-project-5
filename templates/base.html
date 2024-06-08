@@ -68,12 +68,12 @@
     </div>
 </nav>
 
-{#    {% for message in messages %}#}
-{#        {% include "toast.html" with message=message %}#}
-{#    {% empty %}#}
-{#        {% include "toast.html" %}#}
-{#    {% endfor %}#}
-{##}
+{% for message in messages %}
+    {% include "toast.html" with message=message %}
+{% empty %}
+    {% include "toast.html" %}
+{% endfor %}
+
 {% block content %}
 {% endblock content %}
 

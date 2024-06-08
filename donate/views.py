@@ -1,5 +1,6 @@
 import stripe
 from django.conf import settings
+from django.contrib import messages
 from django.contrib.auth import get_user
 from django.shortcuts import redirect
 
@@ -47,5 +48,9 @@ def donate(request):
         update_user_details(request)
         charge = make_stripe_payment(request)
         save_transaction(request, charge)
+        message = (f'Thank you for your donation of '
+                   f'${int(charge["amount"] / 100)}, You may see it in the '
+                   f'first row of this table')
+        messages.add_message(request, messages.SUCCESS, message)
 
     return redirect('history')
