@@ -55,6 +55,13 @@ def redirect_to_donate(request, donation_id):
 
 
 def history(request):
+    donors = (User.objects.annotate(
+        amount=Coalesce(Sum('payment__stripe_payment__amount'), Value(0)))
+              .values('username', 'amount')
+              .order_by('-amount'))
+
+    total_donation = sum(donor['amount'] for donor in donors)
+
     context = {
         'payments': Payment.objects.all().values(
             'id',
@@ -64,10 +71,8 @@ def history(request):
             'stripe_payment__timestamp',
             'stripe_payment__stripe_charge_id'
         ).order_by('-stripe_payment__timestamp'),
-        'donors': (User.objects.annotate(
-            amount=Coalesce(Sum('payment__stripe_payment__amount'), Value(0)))
-                   .values('username', 'amount')
-                   .order_by('-amount')),
+        'donors': donors,
+        'total_donation': total_donation,
     }
     return render(request, 'donation/history.html', context)
 
