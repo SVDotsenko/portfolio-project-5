@@ -36,6 +36,17 @@
                             </tbody>
                         </table>
                     </div>
+                    {% if payments.has_previous %}
+                        <a href="?page={{ payments.previous_page_number }}">previous</a>
+                    {% endif %}
+
+                    <span class="current">
+                        Page {{ payments.number }} of {{ payments.paginator.num_pages }}
+                    </span>
+
+                    {% if payments.has_next %}
+                        <a href="?page={{ payments.next_page_number }}">next</a>
+                    {% endif %}
                 </div>
                 <div class="col-lg-2">
                     <table class="table table-bordered {% if not user.is_authenticated %}table-striped{% endif %}">

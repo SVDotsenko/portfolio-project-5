@@ -5,6 +5,7 @@ from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+from django.core.paginator import Paginator
 from django.db.models import Sum, Value
 from django.db.models.functions import Coalesce
 from django.shortcuts import render, get_object_or_404, redirect
@@ -62,15 +63,22 @@ def history(request):
 
     total_donation = sum(donor['amount'] for donor in donors)
 
+    payments_list = Payment.objects.all().values(
+        'id',
+        'user__username',
+        'donation__title',
+        'stripe_payment__amount',
+        'stripe_payment__timestamp',
+        'stripe_payment__stripe_charge_id'
+    ).order_by('-stripe_payment__timestamp')
+
+    paginator = Paginator(payments_list, 10)
+
+    page_number = request.GET.get('page')
+    payments = paginator.get_page(page_number)
+
     context = {
-        'payments': Payment.objects.all().values(
-            'id',
-            'user__username',
-            'donation__title',
-            'stripe_payment__amount',
-            'stripe_payment__timestamp',
-            'stripe_payment__stripe_charge_id'
-        ).order_by('-stripe_payment__timestamp'),
+        'payments': payments,
         'donors': donors,
         'total_donation': total_donation,
     }
