@@ -36,17 +36,38 @@
                             </tbody>
                         </table>
                     </div>
-                    {% if payments.has_previous %}
-                        <a href="?page={{ payments.previous_page_number }}">previous</a>
-                    {% endif %}
+                    <nav aria-label="page navigation">
+                        <ul class="pagination justify-content-center">
+                            {% if payments.has_previous %}
+                                <li class="page-item">
+                                    <a class="page-link" href="?page={{ payments.previous_page_number }}">Previous</a>
+                                </li>
+                            {% else %}
+                                <li class="page-item disabled">
+                                    <a class="page-link">Previous</a>
+                                </li>
+                            {% endif %}
 
-                    <span class="current">
-                        Page {{ payments.number }} of {{ payments.paginator.num_pages }}
-                    </span>
+                            {% for i in payments.paginator.page_range %}
+                                {% if payments.number == i %}
+                                    <li class="page-item active"><a class="page-link" href="?page={{ i }}">{{ i }}</a>
+                                    </li>
+                                {% else %}
+                                    <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+                                {% endif %}
+                            {% endfor %}
 
-                    {% if payments.has_next %}
-                        <a href="?page={{ payments.next_page_number }}">next</a>
-                    {% endif %}
+                            {% if payments.has_next %}
+                                <li class="page-item">
+                                    <a class="page-link" href="?page={{ payments.next_page_number }}">Next</a>
+                                </li>
+                            {% else %}
+                                <li class="page-item disabled">
+                                    <a class="page-link">Next</a>
+                                </li>
+                            {% endif %}
+                        </ul>
+                    </nav>
                 </div>
                 <div class="col-lg-2">
                     <table class="table table-bordered {% if not user.is_authenticated %}table-striped{% endif %}">
