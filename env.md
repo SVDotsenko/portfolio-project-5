@@ -1,6 +1,4 @@
-clean html unused styles
-защита роутов
-
+routing protection
 continue from 44 lesson
 
 rename this file to env.py, and insert your data, remove this line
