@@ -1726,3 +1726,9 @@ body.modal-open {
         opacity: 0;
     }
 }
+
+@media (min-width: 992px) {
+    .donors {
+        margin-top: 53px;
+    }
+}
