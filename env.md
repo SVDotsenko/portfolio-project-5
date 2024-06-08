@@ -1,9 +1,5 @@
-add spinner to donation button
-validation with tooltips
-on history page add section with donators
-dollar sign left from input goal
-
-clean css, html unused styles
+clean html unused styles
+защита роутов
 
 continue from 44 lesson
 
