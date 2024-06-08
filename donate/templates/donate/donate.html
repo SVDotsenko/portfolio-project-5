@@ -151,7 +151,11 @@
                                     <input type="hidden" value="{{ sk }}" name="sk">
                                 </fieldset>
                                 <button type="submit" class="form-control mt-1" id="submit-button">
-                                    Submit Donation
+                                    <span id="submit-text">Submit Donation</span>
+                                    <span id="loading-spinner" style="display: none;">
+                                        <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+                                        <span>Processing transaction...</span>
+                                    </span>
                                 </button>
                             </div>
                         </div>

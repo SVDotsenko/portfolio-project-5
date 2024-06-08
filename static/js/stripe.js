@@ -39,8 +39,10 @@ const form = document.getElementById('payment-form');
 
 form.addEventListener('submit', event => {
     event.preventDefault();
-    card.update({ 'disabled': true});
+    card.update({'disabled': true});
     $('#submit-button').attr('disabled', true);
+    $('#submit-text').hide();
+    $('#loading-spinner').show();
     stripe.createToken(card).then(result => {
         if (result.error) {
             const errorDiv = document.getElementById('card-errors');
@@ -52,6 +54,8 @@ form.addEventListener('submit', event => {
             $(errorDiv).html(html);
             card.update({'disabled': false});
             $('#submit-button').attr('disabled', false);
+            $('#submit-text').show();
+            $('#loading-spinner').hide();
         } else {
             const hiddenInput = document.createElement('input');
             hiddenInput.setAttribute('type', 'hidden');
