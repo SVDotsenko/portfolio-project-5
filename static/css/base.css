@@ -1732,3 +1732,29 @@ body.modal-open {
         margin-top: 53px;
     }
 }
+
+.pagination .page-link {
+    color: var(--primary-color);
+}
+
+.pagination .page-item.active .page-link {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.pagination .page-link:hover {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.pagination .page-item .page-link {
+    color: inherit;
+}
+
+.pagination .page-item.active .page-link {
+    color: var(--white-color);
+}
+
+.pagination .page-item .page-link:hover {
+    color: var(--white-color);
+}
