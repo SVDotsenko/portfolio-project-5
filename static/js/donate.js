@@ -19,15 +19,9 @@ window.onload = () => {
         }).hide(), 4000);
     }
 
-    navigator.clipboard.writeText('4242424242424242').then(() => {
-        Toast.params.message = "Card number copied to clipboard, paste it in the input field. The date and CVV are any future date and any three digits, respectively";
-        Toast.params.messageTags = "info";
-        Toast.params.delay = 10;
-        Toast.show();
-    }, () => {
-        Toast.params.message = "Failed to copy card number to clipboard, type it manually 4242424242424242. The date and CVV are any future date and any three digits, respectively";
-        Toast.params.messageTags = "error";
-        Toast.params.delay = 10;
-        Toast.show();
-    });
+    Toast.params.message = "The card number is 4242424242424242. The date and CVV are any future date and any three " +
+        "digits, respectively";
+    Toast.params.messageTags = "info";
+    Toast.params.delay = 20;
+    Toast.show();
 };
