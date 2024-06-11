@@ -1,8 +1,7 @@
-Знак доллара 
-Стили в цсс почистить 
+замечания макса
 
-routing protection
-continue from 44 lesson
+Стили в цсс почистить 
+messages.add_message refactoring
 
 rename this file to env.py, and insert your data, remove this line
 import os

@@ -4,6 +4,7 @@ from itertools import cycle
 from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import UserPassesTestMixin
 from django.contrib.auth.models import User
 from django.core.paginator import Paginator
 from django.db.models import Sum, Value
@@ -85,7 +86,17 @@ def history(request):
     return render(request, 'donation/history.html', context)
 
 
-class DonationCard(View):
+class AdminRequiredMixin(UserPassesTestMixin):
+    def test_func(self):
+        return self.request.user.is_superuser
+
+    def handle_no_permission(self):
+        messages.error(self.request,
+                       'You are not allowed to access to this page')
+        return redirect('donations')
+
+
+class DonationCard(AdminRequiredMixin, View):
     def get(self, request, donation_id=-1):
         if donation_id < 0:
             return render(request, 'donation/form.html')
