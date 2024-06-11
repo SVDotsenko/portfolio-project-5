@@ -25,7 +25,7 @@
 
                             <div class="col-lg-4 col-12">
                                 <input type="number" min="100" name="goal" id="custom-amount" required
-                                       class="form-control" placeholder="Goal" value="{{ donation.goal|default:100 }}">
+                                       class="form-control" placeholder="Goal" value="{{ donation.goal }}">
                             </div>
                         </div>
 
@@ -51,4 +51,13 @@
             </div>
         </div>
     </section>
+    <script>
+        function assignValue() {
+            (this.value === '') && (this.value = 100);
+        }
+
+        const customAmountField = document.getElementById('custom-amount');
+        ['click', 'focus'].forEach(event =>
+            customAmountField.addEventListener(event, assignValue.bind(customAmountField)));
+    </script>
 {% endblock %}

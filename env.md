@@ -1,3 +1,6 @@
+Знак доллара 
+Стили в цсс почистить 
+
 routing protection
 continue from 44 lesson
 
