@@ -227,6 +227,12 @@ strong {
     text-overflow: ellipsis;
 }
 
+.custom-block-body h5:hover {
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
+}
+
 h5 + p {
     display: -webkit-box;
     -webkit-line-clamp: 2;
@@ -234,6 +240,13 @@ h5 + p {
     overflow: hidden;
     line-height: 1.5em;
     height: 3em;
+}
+
+h5 + p:hover {
+    display: block;
+    -webkit-line-clamp: none;
+    overflow: visible;
+    height: auto;
 }
 
 /*---------------------------------------
