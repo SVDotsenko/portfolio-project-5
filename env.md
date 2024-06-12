@@ -1,9 +1,8 @@
-центрировать тоаст на мобильных устройствах
-all toast code in html
-проверять все поля на пусто на форме донатов
+add subscribe button on donation form. think where save this data
 замечания макса
 10 секунд на удаление карточки по которой уже собрали нужную сумму
 посмотреть видосы как стилизовать форму логина
+on mobile menu, adjust paddings
 
 Стили в цсс почистить 
 messages.add_message refactoring

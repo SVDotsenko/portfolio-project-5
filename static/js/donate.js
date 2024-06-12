@@ -13,7 +13,7 @@ customAmountInput.addEventListener('keypress', e => {
 });
 
 window.onload = () => {
-    if (document.getElementById('email').value) {
+    if (['email', 'first-name', 'last-name'].reduce((acc, curr) => acc && document.getElementById(curr).value, true)) {
         setTimeout(() => new bootstrap.Collapse(document.getElementById('collapseOne'), {
             toggle: false
         }).hide(), 4000);
