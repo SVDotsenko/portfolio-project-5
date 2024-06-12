@@ -1244,7 +1244,7 @@ blockquote::before {
     padding: 0;
 }
 
-.custom-form button[type="submit"] {
+#subscribe-button, .custom-form button[type="submit"] {
     background: var(--custom-btn-bg-color);
     border: none;
     border-radius: var(--border-radius-large);
@@ -1255,6 +1255,7 @@ blockquote::before {
     margin-bottom: 0;
 }
 
+#subscribe-button:not(:disabled):hover,
 .custom-form button[type="submit"]:hover,
 .custom-form button[type="submit"]:focus {
     background: var(--custom-btn-bg-hover-color);

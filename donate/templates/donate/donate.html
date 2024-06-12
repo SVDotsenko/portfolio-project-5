@@ -126,11 +126,16 @@
                                                        placeholder="Last name" value="{{ user.last_name }}" required>
                                             </div>
 
-                                            <div class="col-lg-12 col-12 mt-2">
+                                            <div class="col-lg-6 col-12 mt-2">
                                                 <input type="email" name="email" id="email" value="{{ user.email }}"
-                                                       pattern="[^ @]*@[^ @]*" class="form-control"
-                                                       placeholder="Jackdoe@gmail.com"
-                                                       required>
+                                                       pattern=".+@[^@]+\.[^@]{2,}$" class="form-control"
+                                                       placeholder="Jackdoe@gmail.com" oninput="checkEmptyEmail()">
+                                            </div>
+                                            <div class="col-lg-6 col-12 mt-2">
+                                                <button type="button" class="form-control" id="subscribe-button"
+                                                        data-toggle="tooltip" title="Subscription to newsletters">
+                                                    Loading status...
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
