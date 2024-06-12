@@ -1,5 +1,5 @@
 {% load static %}
-<div class="toast-container top-1">
+<div class="toast-container top-1 start-50 translate-middle-x">
     <div class="toast border-0" id="liveToast" role="alert" aria-live="assertive" aria-atomic="true">
         <div class="d-flex">
             <div class="toast-body">{{ message | safe }}</div>
@@ -15,11 +15,5 @@
         Toast.params.messageTags = $('.message-tags').text().trim();
         Toast.params.message = $('.toast-body').text().trim();
         Toast.params.messageTags.length && Toast.show();
-        
-        $(window).resize(() => {
-            $(window).width() > 480
-                ? $('.toast-container').addClass('start-50 translate-middle-x')
-                : $('.toast-container').removeClass('start-50 translate-middle-x');
-        }).trigger('resize');
     });
 </script>
