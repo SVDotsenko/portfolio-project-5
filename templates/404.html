@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="parent">
+        <h1 class="text-center">Page not found</h1>
+    </div>
+    <script>
+        $(document).ready(() => {
+            Toast.params.element = $('#liveToast')[0];
+            Toast.params.message = "404";
+            Toast.params.messageTags = "error";
+            Toast.params.delay = 1;
+            Toast.show();
+        });
+    </script>
+{% endblock %}

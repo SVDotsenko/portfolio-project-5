@@ -16,6 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.views.defaults import page_not_found as default_page_not_found
 
 from donation.views import donations
 
@@ -26,3 +27,19 @@ urlpatterns = [
     path('donat/', include('donate.urls')),
     path('accounts/', include('allauth.urls')),
 ]
+
+
+def custom_page_not_found(request, exception):
+    """
+    Custom handler for page not found (404) errors.
+
+    Args:
+        request (HttpRequest): The HTTP request object.
+        exception (Exception): The exception that triggered the 404 error.
+
+    Returns:
+        HttpResponse: The response with the custom 404 page.
+    """
+    response = default_page_not_found(request, exception)
+    response.template_name = '404.html'
+    return response

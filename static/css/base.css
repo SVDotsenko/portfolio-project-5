@@ -1776,3 +1776,13 @@ body.modal-open {
 .adjust-height {
     height: 50px;
 }
+
+@media (min-width: 576px) {
+    .parent {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: calc(100vh - 90px);
+        margin: 0;
+    }
+}
