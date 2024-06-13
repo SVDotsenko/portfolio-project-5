@@ -46,8 +46,8 @@
                     <div class="custom-block-body text-center">
                         <h4 class="text-white mt-lg-3 mb-lg-3">About Volunteering</h4>
 
-                        <p class="text-white">Lorem Ipsum dolor sit amet, consectetur adipsicing kengan omeg kohm tokito
-                            Professional charity theme based</p>
+                        <p class="text-white">Unleash the power of volunteering: Make a difference, connect with others,
+                            and find personal fulfillment</p>
                     </div>
                 </div>
 
@@ -60,8 +60,7 @@
         }
 
         const customAmountField = document.getElementById('custom-amount');
-        ['click', 'focus'].forEach(event =>
-            customAmountField.addEventListener(event, assignValue.bind(customAmountField)));
+        ['click', 'focus'].forEach(e => customAmountField.addEventListener(e, assignValue.bind(customAmountField)));
 
         document.addEventListener('DOMContentLoaded', () => {
             const textarea = document.getElementById('volunteer-message');
