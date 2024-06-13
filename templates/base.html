@@ -48,7 +48,7 @@
                     <a class="nav-link {% if request.path == history_url %}active" aria-current="page{% endif %}"
                        href="{% url 'history' %}"> Donation History </a>
                 </li>
-                <li class="nav-item {% if not user.is_superuser %}invisible{% endif %}">
+                <li class="nav-item {% if not user.is_superuser %}hide-create{% endif %}">
                     <a class="nav-link {% if request.path == create_url %}active" aria-current="page{% endif %}"
                        href="{% url 'create_donation' %}"> Create Donation Card </a>
                 </li>

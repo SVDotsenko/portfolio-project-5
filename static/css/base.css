@@ -407,7 +407,6 @@ h5 + p:hover {
 .navbar-expand-lg .navbar-nav .nav-link {
     margin-right: 0;
     margin-left: 0;
-    padding: 20px;
 }
 
 .navbar-nav .nav-link {
@@ -1477,10 +1476,6 @@ blockquote::before {
         padding-bottom: 30px;
     }
 
-    .navbar-expand-lg .navbar-nav .nav-link {
-        padding: 8px 20px;
-    }
-
     .site-header .social-icon {
         text-align: left;
         margin-top: 5px;
@@ -1784,5 +1779,14 @@ body.modal-open {
         align-items: center;
         min-height: calc(100vh - 90px);
         margin: 0;
+    }
+}
+
+.hide-create {
+    @media (min-width: 992px) {
+        visibility: hidden;
+    }
+    @media (max-width: 992px) {
+        display: none;
     }
 }
