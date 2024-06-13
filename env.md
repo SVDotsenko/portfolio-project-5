@@ -1,7 +1,16 @@
-10 секунд на удаление карточки по которой уже собрали нужную сумму
-
-Стили в цсс почистить когда буду делать описание в ридми. в части валидации цсс
 messages.add_message refactoring
+check names for html elements, they should describe the content
+Include Meta Description tags in the application HTML
+Include a sitemap on your application to allow search engine bot crawling
+Include a robots.txt file to control search engine bot crawling
+
+readme
+	fb
+	unit-test
+	scrum
+	Стили в цсс почистить когда буду делать описание в ридми. в части валидации цсс
+	Document the e-commerce business model underlying your application
+
 
 rename this file to env.py, and insert your data, remove this line
 import os

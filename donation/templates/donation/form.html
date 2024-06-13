@@ -62,5 +62,13 @@
         const customAmountField = document.getElementById('custom-amount');
         ['click', 'focus'].forEach(event =>
             customAmountField.addEventListener(event, assignValue.bind(customAmountField)));
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const textarea = document.getElementById('volunteer-message');
+            if (textarea.value.trim().length) {
+                textarea.style.height = 'auto';
+                textarea.style.height = textarea.scrollHeight + 'px';
+            }
+        });
     </script>
 {% endblock %}
