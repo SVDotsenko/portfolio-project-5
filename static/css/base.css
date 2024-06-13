@@ -1772,3 +1772,7 @@ body.modal-open {
 .pagination .page-item .page-link:hover {
     color: var(--white-color);
 }
+
+.adjust-height {
+    height: 50px;
+}

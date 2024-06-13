@@ -24,8 +24,11 @@
                             </div>
 
                             <div class="col-lg-4 col-12">
-                                <input type="number" min="100" name="goal" id="custom-amount" required
-                                       class="form-control" placeholder="Goal" value="{{ donation.goal }}">
+                                <div class="input-group">
+                                    <span class="input-group-text adjust-height">$</span>
+                                    <input type="number" min="100" name="goal" id="custom-amount" required
+                                           class="form-control" placeholder="Goal" value="{{ donation.goal }}">
+                                </div>
                             </div>
                         </div>
 

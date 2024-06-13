@@ -52,7 +52,7 @@ const checkEmptyEmail = () => {
     const input = document.getElementById('email');
     const button = document.getElementById('subscribe-button');
     const pattern = new RegExp(input.getAttribute("pattern"));
-    setTimeout(() => input.classList.remove('is-invalid', 'is-valid'), 3000);
+    setTimeout(() => input.classList.remove('is-invalid', 'is-valid'), 2000);
     if (pattern.test(input.value)) {
         input.classList.remove('is-invalid');
         input.classList.add('is-valid');

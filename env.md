@@ -1,10 +1,10 @@
-add subscribe button on donation form. think where save this data
-замечания макса
-10 секунд на удаление карточки по которой уже собрали нужную сумму
-посмотреть видосы как стилизовать форму логина
-on mobile menu, adjust paddings
+404
+Mobile menu paddings
+замечания макса, посмотреть видосы как стилизовать форму логина
 
-Стили в цсс почистить 
+10 секунд на удаление карточки по которой уже собрали нужную сумму
+
+Стили в цсс почистить когда буду делать описание в ридми. в части валидации цсс
 messages.add_message refactoring
 
 rename this file to env.py, and insert your data, remove this line
