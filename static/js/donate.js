@@ -11,7 +11,7 @@ const collapsePersonalInfo = () => {
     if (['email', 'first-name', 'last-name'].reduce((acc, curr) => acc && document.getElementById(curr).value, true)) {
         setTimeout(() => new bootstrap.Collapse(document.getElementById('collapseOne'), {
             toggle: false
-        }).hide(), 4000);
+        }).hide(), 2000);
     }
 }
 
@@ -21,6 +21,11 @@ const showCardNumberToast = () => {
     Toast.params.messageTags = "info";
     Toast.params.delay = 20;
     Toast.show();
+
+    $(Toast.params.element).on('hide.bs.toast', function () {
+        collapsePersonalInfo();
+        $(this).off('hide.bs.toast');
+    });
 }
 
 const showSubscriptionToast = index => {
@@ -60,7 +65,6 @@ const checkEmptyEmail = () => {
 }
 
 window.onload = () => {
-    collapsePersonalInfo();
     showCardNumberToast();
     subscribe();
 };

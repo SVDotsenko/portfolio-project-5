@@ -1724,7 +1724,7 @@ body.modal-open {
 }
 
 .fade-out {
-    animation: fadeOut 5s forwards;
+    animation: fadeOut 4s forwards;
 }
 
 @keyframes fadeOut {

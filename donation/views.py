@@ -73,7 +73,7 @@ def history(request):
         'stripe_payment__stripe_charge_id'
     ).order_by('-stripe_payment__timestamp')
 
-    paginator = Paginator(payments_list, 10)
+    paginator = Paginator(payments_list, 12)
 
     page_number = request.GET.get('page')
     payments = paginator.get_page(page_number)
