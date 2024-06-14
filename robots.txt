@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: /donate/
+Sitemap: https://pp5-charity-9abf0672865b.herokuapp.com/sitemap.xml
