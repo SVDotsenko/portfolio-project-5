@@ -13,11 +13,12 @@
     <script>
         window.onload = () => {
             const observer = new IntersectionObserver(entries => {
+                let delay = 0;
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         const card = entry.target.closest('.col-lg-4.col-md-6.col-12.mb-4');
-                        card.classList.add('fade-out');
-                        setTimeout(() => card.remove(), 6000);
+                        setTimeout(() => card.classList.add('fade-out'), delay);
+                        setTimeout(() => card.remove(), delay += 5000);
                         observer.unobserve(entry.target);
                     }
                 });

@@ -1732,7 +1732,7 @@ body.modal-open {
         opacity: 1;
     }
     to {
-        opacity: 0.6;
+        opacity: 0.5;
     }
 }
 
