@@ -111,7 +111,7 @@ class DonationCard(AdminRequiredMixin, View):
                 title = donation_form.cleaned_data.get('title', '')
                 message = f'Donation {title.capitalize()} created successfully'
                 donation_form.save()
-                messages.add_message(request, messages.SUCCESS, message)
+                messages.success(request, message)
                 return redirect('donations')
 
         donation = get_object_or_404(Donation, id=donation_id)
@@ -120,15 +120,15 @@ class DonationCard(AdminRequiredMixin, View):
             title = donation_form.cleaned_data.get('title', '')
             message = f'Donation {title.capitalize()} updated successfully'
             donation_form.save()
-            messages.add_message(request, messages.SUCCESS, message)
+            messages.success(request, message)
             return redirect('donations')
 
-        messages.add_message(request, messages.ERROR, donation_form.errors)
+        messages.error(request, donation_form.errors)
 
 
 def delete_donation(request, donation_id):
     donation = get_object_or_404(Donation, id=donation_id)
     donation.delete()
     message = f'Donation {donation.title.capitalize()} deleted successfully'
-    messages.add_message(request, messages.SUCCESS, message)
+    messages.success(request, message)
     return redirect('donations')

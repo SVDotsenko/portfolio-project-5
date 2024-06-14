@@ -44,7 +44,7 @@ def make_stripe_payment(request):
             )
         )
     except StripeError as e:
-        messages.add_message(request, messages.ERROR, str(e))
+        messages.error(request, str(e))
         return None
 
 
@@ -58,5 +58,5 @@ def donate(request):
         message = (f'Thank you for your donation of '
                    f'${int(charge["amount"] / 100)}, You may see it in '
                    f'the first row of this table')
-        messages.add_message(request, messages.SUCCESS, message)
+        messages.success(request, message)
         return redirect('history')

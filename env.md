@@ -1,10 +1,9 @@
-messages.add_message refactoring
-check names for html elements, they should describe the content
-Include Meta Description tags in the application HTML
 Include a sitemap on your application to allow search engine bot crawling
 Include a robots.txt file to control search engine bot crawling
 
 readme
+	Include Meta Description tags in the application HTML	
+	check names for html elements, they should describe the content	
 	fb
 	unit-test
 	scrum
