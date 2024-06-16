@@ -4,134 +4,109 @@ Kind Heart Charity is a web-based application designed to facilitate and manage 
 
 ---
 
-[View live project here](https://pp4-library-f562eb8422f8.herokuapp.com)
+[View live project here](https://pp5-charity-9abf0672865b.herokuapp.com)
 
-![Responsive design](static/img/readme/smartphones.png)
+![Responsive design](static/images/readme/smartphones.png)
 
-![Responsive design](static/img/readme/desktop.png)
+![Responsive design](static/images/readme/desktop.png)
 
 ## The application implements the following features:
 
-- Access to the application is only possible through a login and password.
-- The application has 2 user roles: Reader and Administrator.
-- Registration of a new user (with the role of Reader) through the user interface.
+- Access to the donation cards and donation history is available to all users, including unregistered users.
+- Access for making donations and all edit, update, delete actions is only possible for registered users.
+- The application has 2 user roles: Donors and Administrator.
+- Registration of a new user (with the role of Donor) through the user interface.
 
 Common functionality for both roles includes:
 
 - Logging into the application through a login form.
-- Viewing all books in the library.
-- Editing information in the profile about the current user logged into the system, including changing the photo.
+- Viewing all causes.
 - If the user will try to access the route that is not exist, the user will be redirected to the 404 page.
-- There are [tooltips](https://getbootstrap.com/docs/5.3/components/tooltips) for all interactive elements in the application which provide additional information about the
-  action that will be performed after clicking on the element.
+- There are [tooltips](https://getbootstrap.com/docs/5.3/components/tooltips) for logout and delete button.
 - There are [toasts](https://getbootstrap.com/docs/5.3/components/toasts) for all create, update and delete operations which provide current user details about
   what he\she has just done.
 - All input fields in this application are mandatory and have a validation on the client side.
 
-Reader functionality:
+Donor functionality:
 
-- Borrowing books from the library.
-- Returning books to the library.
-- Seeing books that are unavailable and who is reading them.
-- Does not have access to the authors' page, if the user tries to access this page, the user will be redirected to the 403 page.
-- On the profile page, view the books that the reader is currently reading.
-- There was also implemented a special error handling for 500 error, which is simulated on the server side. To see
-  it, you need to check checkbox on profile page.
+- Making a donation to a cause.
+- Viewing the donation history.
+- Change personal information on the donation page.
+- Does not have access to the creation a new donation card page, if the user tries to access this page, the 
+  user will be displayed toast with message: "You are not allowed to access to this page".
+- Editing personal information in the donation page.
+- Subscribe to a newsletter from the donation page.
 
 Administrator functionality:
 
-- Adding new book authors.
-- Editing book authors.
-- For Adding and Editing book authors operations, implemented complex validations on client and server sides.
-  - Client side: the input field cannot be empty and should be at least 1 character long.
-  - Server side: each word must start with a capital letter separated by a space.
-- Deleting book authors.
-- Adding new books.
-- Editing existing books.
-- Deleting existing books.
-- If a book is already being read by someone, such a book cannot be edited and the author of such a book also cannot be edited. The book must be returned by the reader before it can be edited or deleted.
+- Adding new cause.
+- Editing cause.
+- Deleting the cause only for cards where there were not donations yes.
 
 ### Existing Features
 
-- **Books**
+- **Home**
 
+  - Unregistered user:
+    - View list of donation cards.
+    - On pushing on donation button, the user will be redirected to the login page.  
+    
   - Administrator:
 
-    - View all books in the library.
-      ![books admin](static/img/readme/books-admin.png)
-    - Add a new book to the library.
-    - Edit an existing book in the library.
-    - Delete a book from the library.
+    - View list of donation cards.
+    - Edit an existing donation card.
+    - Delete donation card. The card can be deleted only if there were no donations yet.
 
-      ![delete book](static/img/readme/delete-book.png)
+  - Donor:
 
-    - The book must be return before deleting or editing.
+    - View list of donation cards.
+    - The cards where donation goal is reached are disappearing with delay after a few seconds the donation button 
+      was displayed.
+    - Select a cause for donation.
 
-      ![reading book](static/img/readme/delete-book-tooltip.png)
+- **Donate**
+  - There is a toast with card number when the user come to this page.
+  - This form can be reached from the Home page by clicking on the Donate button.
+  - The administrator can not access this page. If the administrator will try to access this page, he/she will be 
+    redirected to the Home page.
+  - On this form the Donor can change the cause of donation, the amount of donation, first name, second name, email.
+  - The block with personal information is hiding automatically with a short delay if the user has alredy done a 
+    donation earlier and the fields with personal information was fulfilled after hiding the information toast. 
+    These events are connected with each other.
+  - There is also option to subscribe to the newsletter.
+  - The field custom donation amount is connected with default donation amounts. If the user will press one of the 
+    default donation amounts, this amount will be copied into custom amount field, and vice versa if the user will 
+    type amount manually the amount which is one of the default donation amounts will be highlighted.
+  - After pressing the Submit button, the user will see a spinner on this button, and the label on this button will 
+    be changed on Transaction processing, after successful transaction Donor will be redirected on the History page, 
+    and see the Toast with amount which has just been donated. There is also implemented error handler for this 
+    button. If any error happens during the transaction, the user will see the toast with the message which 
+    describes error, and will be redirected to the Home page.
 
-  - User:
+- **History**
 
-    - View all books in the library.
+  This page is available for any users even unauthorised.  
+  There are 2 tables on this page.
 
-      ![books user](static/img/readme/books-user.png)
+  - Donation history (each single transaction).  It shows the history of donations. The user can see the date of 
+    donation, the amount of donation, and the cause of donation. The number of columns in this table is changing 
+    depending on the screen width.
+  - Aggregated donations grouped by donor. It shows the total amount of donations for each donor. This table is sorted 
+       by the total amount of donations in descending order. If the user is authorised, the row with his/her name 
+    will be highlighted. 
 
-    - Borrow a book from the library.
 
-      ![get book](static/img/readme/get-book.png)
+- **Create Donation Card**
+  - Only user with the role Administrator can access this page. If the user with other roles will try to access this 
+    page, he/she will see a toast with message: "You are not allowed to access to this page".
+  - The new donation card can be created on this page.
+  - The minimum donation amount is $100.
+  - All fields on this form are mandatory. The validation runs after pressing the Submit button.
 
-    - Return a book to the library.
-
-      ![return book](static/img/readme/return-book.png)
-
-    - See if someone is reading the book.
-
-      ![reading book](static/img/readme/reading-book.png)
-
-- **Authors**
-
-  - Administrator:
-    ![authors admin](static/img/readme/authors-admin.png)
-
-    - Add a new author to the library.
-    - Edit an existing author in the library.
-    - Delete an author from the library.
-
-      ![delete book](static/img/readme/delete-author.png)
-
-    - See if the book is taken by any reader.
-
-  - User:
-
-    - Do not have access to see this page.
-    - If a user tries to access this page, they will be redirected to the 403 page.
-
-      ![403 page](static/img/readme/403.png)
-
-- **My Profile**
-  - Administrator:
-    ![admin profile](static/img/readme/profile-admin.png)
-    - Edit information about itself:
-      - First name.
-      - Last name.
-      - Email.
-      - Profile image
-  - User:
-    ![admin profile](static/img/readme/profile-user.png)
-    - See the books that are currently reading.
-    - Edit information about itself:
-      - First name.
-      - Last name.
-      - Email.
-      - Profile image.
-    - Simulate error on server to see how work error handling for 500 error.
 
 ### Features Left to Implement
 
-- Protection of routes by roles through decorators.
-- Make a check so that you cannot enter the same title of a book by the same author twice.
-- Pagination, if there is a lot of content.
-- Use ajax to avoid page reloading.
-- Returning a book from the profile page.
+- Sorting, filtering, and searching for donation cards and history.
 
 ## GitHub Project Board
 
