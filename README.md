@@ -151,27 +151,23 @@ The User model handles user authentication, the Donation model represents the ca
 
 1. [Google Fonts:](https://fonts.google.com)
    - Google fonts were used to import the 'Open Sans' font into the style.css file which is used on all pages throughout the project.
-1. [Font Awesome 6.5.2:](https://fontawesome.com)
-   - Font Awesome was used on all pages throughout the website to add icons for aesthetic and UX purposes.
+1. [Bootstrap icons 1.11.3:](https://icons.getbootstrap.com)
+   - Bootstrap icons was used on all pages throughout the website to add icons for aesthetic and UX purposes.
 1. [Bootstrap 5.3.3:](https://getbootstrap.com/docs/5.3/getting-started/introduction)
    - Bootstrap was used to assist with the responsiveness and styling of the website.
 1. [jQuery 3.7.1:](https://jquery.com)
    - jQuery came with Bootstrap to make the navbar responsive but was also used to show tooltips.
 1. [Google Chrome 124.0.6367.62:](https://www.google.com/chrome)
    - Google Chrome was used as a browser to render and debug this project.
-1. [Django 4.2.11:](https://www.djangoproject.com)
+1. [Django 4.1.13:](https://www.djangoproject.com)
    - Django is a high-level Python web framework that encourages rapid development and clean, pragmatic design.
    - There were also used other [libraries](requirements.txt) in this project.
 1. [ElephantSQL:](https://www.elephantsql.com)
    - ElephantSQL was used to store data.
-1. [Cloudinary:](https://cloudinary.com)
-   - Cloudinary was used to store images.
 1. [Node.js 20.12.2:](https://nodejs.org)
    - Node.js was used to run JavaScript unit-tests.
 1. [npm 10.7.0:](https://www.npmjs.com)
    - npm was used as a package manager for installing [dependencies](package.json).
-1. [JSHint:](https://jshint.com)
-   - JSHint was [used](.jshintrc) to check the quality of JavaScript code.
 1. [Jest 26.6.3:](https://jestjs.io)
    - Jest was [used](package.json) for writing unit-test for JavaScript part of this Project.
 1. [Coverage 7.4.4:](https://coverage.readthedocs.io)
@@ -188,10 +184,12 @@ The User model handles user authentication, the Donation model represents the ca
    - GitHack was used to render Code coverage reports when you click on it on this page.
 1. [Far Manager 3.0.5700.0:](https://www.farmanager.com)
    - Far Manager was used to work with files.
-1. [PyCharm 2024.1:](https://www.jetbrains.com/pycharm)
+1. [PyCharm 2024.1.2 (Professional Edition):](https://www.jetbrains.com/pycharm)
    - PyCharm was used to write all code for this project.
 1. [Microsoft Windows 10.0.19045 Enterprise:](https://www.microsoft.com)
    - Windows was used as an operating system for development this project.
+1. [Stripe 2.43.0:](https://stripe.com)
+   - Stripe was used to handle payments.
 
 ## Manual Testing
 
