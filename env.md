@@ -1,10 +1,8 @@
 readme
-	check names for html elements, they should describe the content	
-	fb
-	unit-test
-	scrum
 	Стили в цсс почистить когда буду делать описание в ридми. в части валидации цсс
-	Document the e-commerce business model underlying your application
+	check names for html elements, they should describe the content
+	unit-test
+	fb
 
 
 rename this file to env.py, and insert your data, remove this line

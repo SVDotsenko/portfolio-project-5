@@ -376,3 +376,25 @@ https://www.mrci.ie/donate/
 https://youtu.be/oZwyA9lUwRk?si=PUu6H6EJB4H8dK6B
 
 https://www.xml-sitemaps.com
+
+
+
+## E-commerce Business Model for the Donation Collection Application
+
+The donation collection application operates on a non-profit e-commerce business model. The primary goal of the application is to facilitate the process of charitable donations rather than generating profit. However, it utilizes e-commerce principles to ensure a seamless and efficient donation process for users.
+
+1. **User Registration and Authentication**: The application provides a secure user registration and authentication system. Users can create an account, log in, and manage their personal information. This ensures a personalized user experience and enables the tracking of individual donation history.
+
+2. **Donation Cards**: The application features donation cards for various causes. Each card includes a description of the cause, the donation goal, and the amount collected so far. Users can browse through these cards, much like products in a traditional e-commerce store.
+
+3. **Donation Process**: Users can select a cause and specify the amount they wish to donate. The application integrates with a secure payment gateway (like Stripe) to process the transaction. This mirrors the checkout process in an e-commerce setting.
+
+4. **Donation History**: Users can view their donation history, which includes details of each donation they've made. This is similar to order history in an e-commerce application.
+
+5. **Administrator Role**: Administrators can manage the donation cards, similar to how products are managed in an e-commerce store. They can add new causes, and update or delete existing ones.
+
+6. **User Notifications**: The application provides notifications to users about their donations and any updates to the causes they've donated to. This is akin to order updates and promotional notifications in an e-commerce business.
+
+7. **Data Management**: The application uses a robust database system to manage user data, donation data, and transaction data. This is crucial for any e-commerce business to operate efficiently.
+
+In summary, while the application's primary purpose is not to sell products or services, it utilizes key e-commerce principles to provide a user-friendly, efficient, and secure platform for charitable donations.
