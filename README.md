@@ -48,7 +48,10 @@ Administrator functionality:
 - **Home**
 
   - Unregistered user:
+  
     - View list of donation cards.
+    - There is a hover effect on each Donation card expanding title and description if the content is bigger than 
+      default container height.
     - On pushing on donation button, the user will be redirected to the login page.  
     
   - Administrator:
@@ -110,27 +113,30 @@ Administrator functionality:
 
 ## GitHub Project Board
 
-The project was managed using a [GitHub Project Board](https://github.com/users/SVDotsenko/projects/4)
+The project was managed using a [GitHub Project Board](https://github.com/users/SVDotsenko/projects/6)
 
-## Data model
 
-1. **User Model**: This is a built-in Django model that represents the users of your application. It includes fields for username, password, email, first name, and last name. The User model is used for authentication and authorization in the Django framework.
+## Data Model
 
-2. **ProfileImage Model**: This model is related to the User model with a one-to-one relationship. It represents the profile image of a user. It includes the following fields:
+1. **User Model**: This is a built-in Django model that represents the users of the application. It includes fields for username, password, email, first name, and last name. The User model is used for authentication and authorization in the Django framework.
 
-   - `user`: A one-to-one field linking to the User model. When a User instance is deleted, the associated ProfileImage instance will also be deleted.
-   - `image`: A field that stores the image of the user's profile. It uses the Cloudinary service for image hosting.
+2. **Donation Model**: This model represents the causes for which donations can be made. It includes the following fields:
+    - `title`: A character field with a maximum length of 200 characters that stores the title of the cause.
+    - `description`: A text field that stores the description of the cause.
+    - `goal`: An integer field that stores the donation goal for the cause.
 
-3. **Author Model**: This model represents the authors of the books in your application. It includes the following field:
+3. **StripeTransaction Model**: This model represents the transactions made through Stripe. It includes the following fields:
+    - `stripe_charge_id`: A character field with a maximum length of 50 characters that stores the Stripe charge ID.
+    - `amount`: An integer field that stores the amount of the transaction.
+    - `timestamp`: A datetime field that stores the timestamp of the transaction.
 
-   - `name`: A character field with a maximum length of 200 characters that stores the name of the author.
+4. **Payment Model**: This model represents the donations made by users. It includes the following fields:
+    - `user`: A foreign key field linking to the User model. It represents the user who made the donation. When a User instance is deleted, the associated Payment instances will also be deleted.
+    - `donation`: A foreign key field linking to the Donation model. It represents the cause to which the donation was made. When a Donation instance is deleted, the associated Payment instances will also be deleted.
+    - `stripe_payment`: A one-to-one field linking to the StripeTransaction model. It represents the Stripe transaction associated with the donation. When a StripeTransaction instance is deleted, the associated Payment instance will also be deleted.
 
-4. **Book Model**: This model represents the books in your application. It includes the following fields:
-   - `title`: A character field with a maximum length of 200 characters that stores the title of the book.
-   - `author`: A foreign key field linking to the Author model. When an Author instance is deleted, the associated Book instances will not be deleted but the `author` field will be set to NULL.
-   - `reader`: A foreign key field linking to the User model. It represents the user who is currently reading the book. When a User instance is deleted, the `reader` field in the associated Book instances will be set to NULL.
+The User model handles user authentication, the Donation model represents the causes for donations, the StripeTransaction model represents the Stripe transactions, and the Payment model represents the donations made by users and their associated Stripe transactions.
 
-The User model handles user authentication, the ProfileImage model handles user profile images, the Author model represents book authors, and the Book model represents the books in application and their current reader.
 
 ## Technologies Used
 
