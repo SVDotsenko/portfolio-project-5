@@ -149,8 +149,6 @@ The User model handles user authentication, the Donation model represents the ca
 
 ### Frameworks, Libraries & Programs Used
 
-1. [Google Fonts:](https://fonts.google.com)
-   - Google fonts were used to import the 'Open Sans' font into the style.css file which is used on all pages throughout the project.
 1. [Bootstrap icons 1.11.3:](https://icons.getbootstrap.com)
    - Bootstrap icons was used on all pages throughout the website to add icons for aesthetic and UX purposes.
 1. [Bootstrap 5.3.3:](https://getbootstrap.com/docs/5.3/getting-started/introduction)
@@ -223,18 +221,12 @@ The User model handles user authentication, the Donation model represents the ca
    - Click the "Sign Up" button.
    - Verify that an error message is displayed.
 
-### Testing Book Viewing Functionality
+### Testing Home (Donations) Viewing Functionality
 
-1. **Testing viewing the list of books**
+1. **Testing viewing the list of donations**
 
-   - Navigate to the books page.
-   - Verify that a list of all books is displayed.
-
-2. **Testing viewing book details**
-   - Login as an Administrator.
-   - Navigate to the books page.
-   - Click on edit button one of the books.
-   - Verify that a page with details of the selected book is displayed.
+   - Navigate to the donations page.
+   - Verify that a list of all donations is displayed.
 
 All additional features and functionality not explicitly mentioned in this section have also been thoroughly tested and are confirmed to be working correctly.
 
