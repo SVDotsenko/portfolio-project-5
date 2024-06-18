@@ -14,7 +14,7 @@ const Toast = {
     params: {
         messageTags: 'info',
         message: 'Hello, world!',
-        delay: 20,
+        delay: 10,
         autoHide: true
     },
 
