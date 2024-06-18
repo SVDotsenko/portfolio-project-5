@@ -257,27 +257,6 @@ h5 + p:hover {
     background: var(--secondary-color);
 }
 
-
-/*---------------------------------------
-  CUSTOM ICON COLOR
------------------------------------------*/
-
-
-/*---------------------------------------
-  CUSTOM LIST
------------------------------------------*/
-
-
-/*---------------------------------------
-  CUSTOM TEXT BOX
------------------------------------------*/
-
-
-/*---------------------------------------
-  AVATAR IMAGE - TESTIMONIAL, AUTHOR
------------------------------------------*/
-
-
 /*---------------------------------------
   CUSTOM BUTTON
 -----------------------------------------*/
@@ -319,7 +298,6 @@ h5 + p:hover {
     border-color: transparent;
     color: var(--white-color);
 }
-
 
 /*---------------------------------------
   NAVIGATION
@@ -373,9 +351,6 @@ h5 + p:hover {
 .navbar-nav .nav-link:hover {
     background: transparent;
     color: var(--primary-color);
-}
-
-@media screen and (min-width: 992px) {
 }
 
 .navbar-toggler {
@@ -547,49 +522,6 @@ h5 + p:hover {
     padding: 30px;
 }
 
-
-/*---------------------------------------
-  NEWS
------------------------------------------*/
-
-blockquote {
-    background: var(--section-bg-color);
-    border-radius: var(--border-radius-small);
-    font-size: var(--h5-font-size);
-    font-weight: var(--font-weight-semibold);
-    color: var(--site-footer-bg-color);
-    margin-top: 30px;
-    margin-bottom: 30px;
-    padding: 90px 50px 50px 50px;
-    text-align: center;
-}
-
-blockquote::before {
-    content: "“";
-    color: var(--custom-btn-bg-color);
-    font-size: 100px;
-    line-height: 1rem;
-    display: block;
-}
-
-
-/*---------------------------------------
-  TESTIMONIAL CAROUSEL
------------------------------------------*/
-
-#testimonial-carousel .carousel-indicators li {
-    text-indent: inherit;
-    background: transparent;
-    margin: 0 10px;
-}
-
-#testimonial-carousel .carousel-indicators li,
-#testimonial-carousel .carousel-indicators li::before {
-    width: 45px;
-    height: 45px;
-}
-
-
 /*---------------------------------------
   CONTACT
 -----------------------------------------*/
@@ -599,7 +531,6 @@ blockquote::before {
     border-radius: var(--border-radius-small);
     padding: 40px;
 }
-
 
 /*---------------------------------------
   CUSTOM FORM
@@ -724,58 +655,9 @@ blockquote::before {
     background: var(--white-color);
 }
 
-.search-form .form-control {
-    padding-right: 50px;
-}
-
-.search-form button[type="submit"] {
-    background: transparent;
-    position: absolute;
-    top: 0;
-    right: 0;
-    color: var(--p-color);
-    width: 50px;
-    padding: 12px;
-}
-
-.search-form button[type="submit"]:hover {
-    background: transparent;
-    color: var(--dark-color);
-}
-
-.subscribe-form .form-control {
-    background: var(--white-color);
-}
-
 .donate-form .form-control {
     margin-bottom: 0;
 }
-
-
-/*---------------------------------------
-  SITE FOOTER
------------------------------------------*/
-
-.site-footer-bottom a {
-    color: var(--white-color);
-}
-
-.site-footer-bottom a:hover {
-    color: #FF6;
-}
-
-.site-footer .custom-btn {
-    font-size: var(--copyright-font-size);
-}
-
-.site-footer .custom-btn:hover {
-    background: var(--primary-color);
-}
-
-
-/*---------------------------------------
-  FOOTER MENU
------------------------------------------*/
 
 
 /*---------------------------------------
@@ -815,9 +697,6 @@ blockquote::before {
         width: 350px;
         height: 350px;
     }
-}
-
-@media screen and (max-width: 1170px) {
 }
 
 @media screen and (max-width: 991px) {
@@ -877,10 +756,6 @@ blockquote::before {
         height: 250px;
         margin: 0;
     }
-
-}
-
-@media screen and (max-width: 580px) {
 
 }
 
