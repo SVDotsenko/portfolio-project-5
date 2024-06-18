@@ -442,14 +442,14 @@ h5 + p:hover {
 /*---------------------------------------
   VOLUNTEER
 -----------------------------------------*/
-.volunteer-section {
+.form-section {
     background: var(--secondary-color);
     position: relative;
     overflow: hidden;
 }
 
 @media (min-width: 992px) {
-    .volunteer-section::after {
+    .form-section::after {
         content: "";
         background: var(--primary-color);
         border-radius: 50%;
@@ -461,7 +461,7 @@ h5 + p:hover {
     }
 }
 
-.volunteer-form {
+.card-form {
     background: var(--white-color);
     border-radius: var(--border-radius-medium);
     padding: 50px;
@@ -476,12 +476,12 @@ h5 + p:hover {
     object-fit: cover;
 }
 
-.volunteer-section .custom-block-body {
+.form-section .custom-block-body {
     max-width: 440px;
     margin: 0 auto;
 }
 
-.volunteer-section .custom-block-body p {
+.form-section .custom-block-body p {
     line-height: 1.7;
 }
 
@@ -688,7 +688,7 @@ h5 + p:hover {
 -----------------------------------------*/
 @media screen and (min-width: 1600px) {
 
-    .volunteer-section::after {
+    .form-section::after {
         width: 450px;
         height: 450px;
     }
@@ -742,7 +742,7 @@ h5 + p:hover {
         padding-bottom: 50px;
     }
 
-    .volunteer-section::after {
+    .form-section::after {
         width: 300px;
         height: 300px;
     }
@@ -785,7 +785,7 @@ h5 + p:hover {
         height: 150px;
     }
 
-    .volunteer-section::after {
+    .form-section::after {
         width: 200px;
         height: 200px;
     }
