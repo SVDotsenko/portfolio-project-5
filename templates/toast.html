@@ -10,6 +10,10 @@
 </div>
 <script src="{% static 'js/toast.js' %}"></script>
 <script>
+    /**
+    This script runs when the document is ready.
+    It sets the Toast parameters and shows the toast if there are any message tags.
+    */
     $(document).ready(() => {
         Toast.params.element = $('#liveToast')[0];
         Toast.params.messageTags = $('.message-tags').text().trim();

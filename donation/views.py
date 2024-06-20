@@ -18,12 +18,36 @@ from donation.models import Donation
 
 
 def raised(donation):
+    """
+    Calculate the total amount raised for a given donation.
+
+    Args:
+        donation: The donation object for which to calculate the total amount
+        raised.
+
+    Returns:
+        The total amount raised for the donation. If no payments are found,
+        returns 0.
+    """
     return (Payment.objects.filter(donation=donation)
             .aggregate(Sum('stripe_payment__amount'))
             ['stripe_payment__amount__sum'] or 0)
 
 
 def donations(request):
+    """
+    View function that retrieves a list of donations, assigns images to each
+    donation,
+    calculates the raised amount and percentage for each donation, and renders
+    the
+    'donation/donations.html' template with the sorted list of donations.
+
+    Args:
+        request (HttpRequest): The HTTP request object.
+
+    Returns:
+        HttpResponse: The HTTP response object containing the rendered template
+    """
     IMAGE_DIR = 'static/images/causes'
     image_cycle = cycle(os.listdir(IMAGE_DIR))
     donations = Donation.objects.all()
@@ -40,6 +64,18 @@ def donations(request):
 
 @login_required
 def redirect_to_donate(request, donation_id):
+    """
+    Redirects the user to the donate page if they are not a superuser.
+    If the user is a superuser, it redirects them to the donations page.
+
+    Args:
+        request (HttpRequest): The HTTP request object.
+        donation_id (int): The ID of the donation.
+
+    Returns:
+        HttpResponse: The rendered donate page or the donations page.
+
+    """
     if request.user.is_superuser:
         return redirect('donations')
 
@@ -57,6 +93,18 @@ def redirect_to_donate(request, donation_id):
 
 
 def history(request):
+    """
+    View function that displays the donation history.
+
+    Retrieves the list of donors and their total donation amounts,
+    as well as the list of payments made, and paginates the results.
+
+    Args:
+        request (HttpRequest): The HTTP request object.
+
+    Returns:
+        HttpResponse: The HTTP response object containing the rendered template
+    """
     donors = (User.objects.annotate(
         amount=Coalesce(Sum('payment__stripe_payment__amount'), Value(0)))
               .values('username', 'amount')
@@ -87,17 +135,95 @@ def history(request):
 
 
 class AdminRequiredMixin(UserPassesTestMixin):
+    """
+    A mixin class that requires the user to be a superuser.
+
+    This mixin is used to restrict access to views or class-based views
+    that should only be accessible by superusers. It checks if the user
+    is a superuser by calling the `test_func` method.
+
+    If the user is not a superuser, it displays an error message and
+    redirects the user to the 'donations' page.
+
+    Attributes:
+        None
+
+    Methods:
+        test_func: Checks if the user is a superuser.
+        handle_no_permission: Handles the case when the user is not a superuser
+
+    Usage:
+        To use this mixin, inherit from it in your view or class-based view
+        and override the `test_func` method if needed.
+
+    Example:
+        class MyView(AdminRequiredMixin, View):
+            def test_func(self):
+                # Custom logic to check if the user is a superuser
+                return self.request.user.is_superuser
+
+            def handle_no_permission(self):
+                # Custom logic to handle no permission case
+                messages.error(self.request, 'You are not allowed to access
+                this page')
+                return redirect('donations')
+    """
+
     def test_func(self):
+        """
+        Checks if the user is a superuser.
+
+        Returns:
+            bool: True if the user is a superuser, False otherwise.
+        """
         return self.request.user.is_superuser
 
     def handle_no_permission(self):
-        messages.error(self.request,
-                       'You are not allowed to access to this page')
+        """
+        Handles the case when a user does not have permission to access a page.
+
+        Displays an error message to the user and redirects them to the
+        donations page.
+        """
+        messages.error(self.request, 'You are not allowed to access this page')
         return redirect('donations')
 
 
 class DonationCard(AdminRequiredMixin, View):
+    """
+    A class-based view for handling donation cards.
+
+    This view allows users to create and update donation cards.
+
+    Attributes:
+        - AdminRequiredMixin: A mixin that requires the user to be an admin.
+        - View: The base class for all views.
+
+    Methods:
+        - get: Handles GET requests for creating or updating a donation card.
+        - post: Handles POST requests for creating or updating a donation card.
+    """
+
     def get(self, request, donation_id=-1):
+        """
+        Handles the GET request for the donation form.
+
+        If a donation_id is provided, it retrieves the corresponding
+        Donation object
+        from the database and renders the donation form template with the
+        donation data.
+        If no donation_id is provided, it simply renders the donation form
+        template.
+
+        Args:
+            request (HttpRequest): The HTTP request object.
+            donation_id (int, optional): The ID of the donation object to
+            retrieve. Defaults to -1.
+
+        Returns:
+            HttpResponse: The HTTP response object containing the rendered
+            template.
+        """
         if donation_id < 0:
             return render(request, 'donation/form.html')
 
@@ -105,6 +231,21 @@ class DonationCard(AdminRequiredMixin, View):
                       {'donation': Donation.objects.get(id=donation_id)})
 
     def post(self, request, donation_id=-1):
+        """
+        Handle the HTTP POST request for creating or updating a donation.
+
+        Args:
+            request (HttpRequest): The HTTP request object.
+            donation_id (int, optional): The ID of the donation to be updated.
+            Defaults to -1.
+
+        Returns:
+            HttpResponseRedirect: A redirect response to the 'donations' page.
+
+        Raises:
+            Http404: If the donation with the specified ID does not exist.
+
+        """
         if donation_id < 0:
             donation_form = DonationForm(request.POST)
             if donation_form.is_valid():
@@ -127,6 +268,19 @@ class DonationCard(AdminRequiredMixin, View):
 
 
 def delete_donation(request, donation_id):
+    """
+    Deletes a donation object from the database.
+
+    Args:
+        request (HttpRequest): The HTTP request object.
+        donation_id (int): The ID of the donation to be deleted.
+
+    Returns:
+        HttpResponseRedirect: Redirects to the 'donations' page.
+
+    Raises:
+        Http404: If the donation with the specified ID does not exist.
+    """
     donation = get_object_or_404(Donation, id=donation_id)
     donation.delete()
     message = f'Donation {donation.title.capitalize()} deleted successfully'

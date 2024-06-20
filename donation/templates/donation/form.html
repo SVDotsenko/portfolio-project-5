@@ -55,6 +55,12 @@
         </div>
     </section>
     <script>
+        /**
+        This script contains two functions:
+        1. assignValue: If the custom amount field is empty, it sets its value to 100.
+        2. An anonymous function: Adjusts the height of the description textarea to fit its content when the page loads.
+        The assignValue function is bound to the click and focus events of the custom amount field.
+        */
         function assignValue() {
             (this.value === '') && (this.value = 100);
         }

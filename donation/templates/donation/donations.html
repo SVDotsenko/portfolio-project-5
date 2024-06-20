@@ -11,6 +11,12 @@
         </div>
     </section>
     <script>
+        /**
+         * When the page loads, an IntersectionObserver is created to observe each donation card.
+         * If the button text of a card is "Goal reached", the card is observed.
+         * When the button of a card is intersecting the viewport, the card fades out and is removed after 5 seconds.
+         * The observer stops observing the button after it intersects the viewport.
+         */
         window.onload = () => {
             const observer = new IntersectionObserver(entries => {
                 let delay = 0;

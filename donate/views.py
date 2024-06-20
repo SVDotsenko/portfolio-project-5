@@ -10,6 +10,15 @@ from donation.models import Donation
 
 
 def update_user_details(request):
+    """
+    Update the details of a user.
+
+    Args:
+        request (HttpRequest): The HTTP request object.
+
+    Returns:
+        None
+    """
     user = get_user(request)
     user.first_name = request.POST['first-name']
     user.last_name = request.POST['last-name']
@@ -18,6 +27,16 @@ def update_user_details(request):
 
 
 def save_transaction(request, charge):
+    """
+    Saves a transaction in the database.
+
+    Parameters:
+    - request: The HTTP request object.
+    - charge: The charge object returned by Stripe.
+
+    Returns:
+    None
+    """
     Payment.objects.create(
         user=get_user(request),
         donation=Donation.objects.get(id=request.POST['cause']),
@@ -29,6 +48,20 @@ def save_transaction(request, charge):
 
 
 def make_stripe_payment(request):
+    """
+    Process a payment using the Stripe API.
+
+    Args:
+        request (HttpRequest): The HTTP request object.
+
+    Returns:
+        stripe.Charge or None: The Stripe charge object if the payment is successful,
+        None otherwise.
+
+    Raises:
+        StripeError: If there is an error during the payment process.
+
+    """
     stripe.api_key = settings.STRIPE_SK
     user = get_user(request)
 
@@ -49,6 +82,16 @@ def make_stripe_payment(request):
 
 
 def donate(request):
+    """
+    Process the donation request.
+
+    Args:
+        request (HttpRequest): The HTTP request object.
+
+    Returns:
+        HttpResponseRedirect: Redirects to the 'history' page if the donation is successful.
+
+    """
     if request.method == 'POST':
         update_user_details(request)
         charge = make_stripe_payment(request)
