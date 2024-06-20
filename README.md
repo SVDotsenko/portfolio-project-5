@@ -230,6 +230,36 @@ The User model handles user authentication, the Donation model represents the ca
    - Navigate to the donations page.
    - Verify that a list of all donations is displayed.
 
+### Testing Donate Functionality
+
+1. **Testing donation with correct data**
+
+    - Log in to your account.
+    - Navigate to the donations page.
+    - Select a cause you wish to donate to and click on the "Donate" button.
+    - You should be redirected to the donation page.
+    - Fill in your personal information (first name, last name, email) if not already filled.
+    - Specify the amount you wish to donate.
+    - Enter your Stripe payment details and click on the "Submit" button.
+    - Verify that the payment is processed successfully. You should be redirected to the history page with a success message indicating the amount you've donated.
+
+2. **Testing donation with incorrect data**
+
+    - Log in to your account.
+    - Navigate to the donations page.
+    - Select a cause you wish to donate to and click on the "Donate" button.
+    - You should be redirected to the donation page.
+    - Fill in your personal information (first name, last name, email) if not already filled.
+    - Specify the amount you wish to donate.
+    - Enter incorrect Stripe payment details and click on the "Submit" button.
+    - Verify that an error message is displayed and the payment is not processed.
+
+3. **Testing donation without logging in**
+
+    - Navigate to the donations page without logging in.
+    - Select a cause you wish to donate to and click on the "Donate" button.
+    - Verify that you are redirected to the login page.
+
 All additional features and functionality not explicitly mentioned in this section have also been thoroughly tested and are confirmed to be working correctly.
 
 ## Automation Testing
