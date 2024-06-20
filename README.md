@@ -266,8 +266,8 @@ All additional features and functionality not explicitly mentioned in this secti
 
 The entire project is covered by unit tests. Test coverage reports can be viewed in the following links:
 
-- [Django Test Coverage Report](https://raw.githack.com/SVDotsenko/portfolio-project-4/master/htmlcov/index.html)
-- [JavaScript Test Coverage Report](https://raw.githack.com/SVDotsenko/portfolio-project-4/master/coverage/lcov-report/index.html)
+- [Django Test Coverage Report](https://raw.githack.com/SVDotsenko/portfolio-project-5/master/htmlcov/index.html)
+- [JavaScript Test Coverage Report](https://raw.githack.com/SVDotsenko/portfolio-project-5/master/coverage/lcov-report/index.html)
 
 ## Validator Testing
 
