@@ -119,4 +119,3 @@ AUTH_PASSWORD_VALIDATORS = [
 STRIPE_CURRENCY = 'usd'
 STRIPE_PK = os.getenv('STRIPE_PK')
 STRIPE_SK = os.getenv('STRIPE_SK')
-# STRIPE_WH = os.getenv('STRIPE_WH')
