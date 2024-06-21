@@ -46,4 +46,6 @@ const Toast = {
     }
 };
 
-(typeof module !== 'undefined' && module.exports) && (module.exports = Toast);
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = Toast;
+}

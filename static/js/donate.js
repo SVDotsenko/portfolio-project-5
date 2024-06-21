@@ -22,7 +22,7 @@ const collapsePersonalInfo = () => {
             toggle: false
         }).hide(), 2000);
     }
-}
+};
 
 /**
  * Shows a toast with card number information and sets up an event listener to collapse the personal information section
@@ -39,7 +39,7 @@ const showCardNumberToast = () => {
         collapsePersonalInfo();
         $(this).off('hide.bs.toast');
     });
-}
+};
 
 /**
  * Shows a toast with subscription status message.
@@ -52,7 +52,7 @@ const showSubscriptionToast = index => {
     Toast.params.messageTags = "success";
     Toast.params.delay = 3;
     Toast.show();
-}
+};
 
 /**
  * Sets up the subscribe button to toggle subscription status when clicked.
@@ -62,11 +62,11 @@ const subscribe = () => {
     subscribeButton.textContent = localStorage.getItem('subscribed') === 'true' ? 'Unsubscribe' : 'Subscribe';
     subscribeButton.addEventListener('click', () => {
         const isSubscribed = localStorage.getItem('subscribed') === 'true';
-        showSubscriptionToast(+isSubscribed)
+        showSubscriptionToast(+isSubscribed);
         localStorage.setItem('subscribed', !isSubscribed);
         subscribeButton.textContent = isSubscribed ? 'Subscribe' : 'Unsubscribe';
     });
-}
+};
 
 /**
  * Checks if the email input value is valid and updates its class and the disabled status of the subscribe button
@@ -86,7 +86,7 @@ const checkEmptyEmail = () => {
         input.classList.add('is-invalid');
         button.disabled = true;
     }
-}
+};
 
 /**
  * Sets up the page to show the card number toast and subscribe when loaded.

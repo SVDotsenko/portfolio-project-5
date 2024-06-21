@@ -272,11 +272,43 @@ The entire project is covered by unit tests. Test coverage reports can be viewed
 ## Validator Testing
 
 - HTML
-  - All errors found by official W3C validator were fixed in separate commits by User Story #20.
+  - All errors found by official [W3C](https://validator.w3.org/#validate_by_uri) validator were fixed in separate commit by User Story #20.
 - CSS
-  - No errors were found when passing through the official (Jigsaw) validator
+  - All errors found by official [Jigsaw](https://jigsaw.w3.org/css-validator) validator were fixed in separate commit by User Story #20.
 - JavaScript
-  - No errors were found when passing through the JSHint validator according to [settings](.jshintrc).
+  - All errors found by official [CI JSHint API](https://ci-jshint.herokuapp.com) validator were fixed (using ES6 syntax) in separate commit by User Story #20.
+  - <details>
+      <summary>Results of CI JSHint validation</summary>
+    
+        Validation results for toast.js: {
+            error_list: [],
+            file: 'toast.js',
+            status_code: 200,
+            total_errors: 0
+        }
+        
+        Validation results for donate.js: {
+            error_list: [],
+            file: 'donate.js',
+            status_code: 200,
+            total_errors: 0
+        }
+        
+        Validation results for toast.test.js: {
+            error_list: [],
+            file: 'toast.test.js',
+            status_code: 200,
+            total_errors: 0
+        }
+        
+        Validation results for stripe.js: {
+            error_list: [],
+            file: 'stripe.js',
+            status_code: 200,
+            total_errors: 0
+        }
+    
+    </details>
 - Python - All errors found by [CI Python Linter](https://pep8ci.herokuapp.com) were fixed in separate [commit](https://github.com/SVDotsenko/portfolio-project-4/commit/0379719df6edc0210029873d157f4d71d41e60da).
 - Accessibility
   - I confirm that the colors and fonts chosen are easy to read and accessible by running it through lighthouse in devtools.
