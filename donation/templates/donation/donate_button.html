@@ -28,11 +28,11 @@
 {% endif %}
 
 <div class="modal fade" id="{{ donation.id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-     aria-labelledby="modalCenterTitle" aria-hidden="true">
+     aria-labelledby="modalCenterTitle-{{ donation.id }}" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 id="modalCenterTitle">Deleting action</h4>
+                <h4 id="modalCenterTitle-{{ donation.id }}">Deleting action</h4>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
