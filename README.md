@@ -1,6 +1,6 @@
 # Kind Heart Charity
 
-Kind Heart Charity is a web-based application designed to facilitate and manage the process of charitable donations. The application is built using Django and JavaScript, with package management handled by pip for Python. The application allows users to browse through various causes and make donations. Each donation is associated with its respective cause. Users can also track their donation history, providing a dynamic and interactive charity experience. The application has two main user roles: User and Administrator. A User can browse the causes, make donations, and track their donation history. An Administrator, on the other hand, has the ability to add, delete, and modify causes in the application, providing comprehensive management of the charity's causes.  The application ensures secure user authentication and role-based access to various features. It also includes robust error handling and user notifications for a smooth user experience. The project uses a PostgreSQL database for data storage, managed through Django's ORM. The application's user interface is designed to be intuitive and user-friendly, ensuring a seamless user experience.
+Kind Heart Charity is a web-based application designed to facilitate and manage the process of charitable donations. The application is built using Django and JavaScript, with package management handled by pip for Python. The application allows users to browse through various causes and make donations. Each donation is associated with its respective cause. Users can also track their donation history, providing a dynamic and interactive charity experience. The application has two main user roles: User and Administrator. A User can browse the causes, make donations, and track their donation history. An Administrator, on the other hand, has the ability to add, delete, and modify causes in the application, providing comprehensive management of the charity's causes. The application ensures secure user authentication and role-based access to various features. It also includes robust error handling and user notifications for a smooth user experience. The project uses a PostgreSQL database for data storage, managed through Django's ORM. The application's user interface is designed to be intuitive and user-friendly, ensuring a seamless user experience. Additionally, the project integrates with Stripe for secure payment processing, allowing users to make donations using their preferred payment methods. Data storage, managed through Django's ORM. The application's user interface is designed to be intuitive and user-friendly, ensuring a seamless user experience.
 
 ---
 
@@ -400,17 +400,6 @@ To run unit tests locally and see coverage reports, you need:
    ```
 4. The browser should be opened a new tabs with the coverage reports.
 
-## Credits
-
-This [template](https://themewagon.com/themes/free-responsive-bootstrap-5-html5-charity-template-kindheart/) was adopted for the project.
-https://templatemo.com/tm-581-kind-heart-charity
-https://www.mrci.ie/donate/
-https://youtu.be/oZwyA9lUwRk?si=PUu6H6EJB4H8dK6B
-
-https://www.xml-sitemaps.com
-
-
-
 ## E-commerce Business Model for the Donation Collection Application
 
 The donation collection application operates on a non-profit e-commerce business model. The primary goal of the application is to facilitate the process of charitable donations rather than generating profit. However, it utilizes e-commerce principles to ensure a seamless and efficient donation process for users.
@@ -430,3 +419,12 @@ The donation collection application operates on a non-profit e-commerce business
 7. **Data Management**: The application uses a robust database system to manage user data, donation data, and transaction data. This is crucial for any e-commerce business to operate efficiently.
 
 In summary, while the application's primary purpose is not to sell products or services, it utilizes key e-commerce principles to provide a user-friendly, efficient, and secure platform for charitable donations.
+
+## Credits
+
+This [template](https://templatemo.com/tm-581-kind-heart-charity) was adopted for the project.
+
+On [this page](https://www.mrci.ie/donate) I watched how donations can be implemented in the real world.
+
+Provided by Code Institute mechanism processing Stripe transactions in my case did not work properly, I found [another
+one](https://youtu.be/oZwyA9lUwRk?si=PUu6H6EJB4H8dK6B).

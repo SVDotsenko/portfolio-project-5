@@ -37,10 +37,9 @@ def raised(donation):
 def donations(request):
     """
     View function that retrieves a list of donations, assigns images to each
-    donation,
-    calculates the raised amount and percentage for each donation, and renders
-    the
-    'donation/donations.html' template with the sorted list of donations.
+    donation, calculates the raised amount and percentage for each donation,
+    and renders the 'donation/donations.html' template with the sorted list of
+    donations.
 
     Args:
         request (HttpRequest): The HTTP request object.
@@ -144,29 +143,6 @@ class AdminRequiredMixin(UserPassesTestMixin):
 
     If the user is not a superuser, it displays an error message and
     redirects the user to the 'donations' page.
-
-    Attributes:
-        None
-
-    Methods:
-        test_func: Checks if the user is a superuser.
-        handle_no_permission: Handles the case when the user is not a superuser
-
-    Usage:
-        To use this mixin, inherit from it in your view or class-based view
-        and override the `test_func` method if needed.
-
-    Example:
-        class MyView(AdminRequiredMixin, View):
-            def test_func(self):
-                # Custom logic to check if the user is a superuser
-                return self.request.user.is_superuser
-
-            def handle_no_permission(self):
-                # Custom logic to handle no permission case
-                messages.error(self.request, 'You are not allowed to access
-                this page')
-                return redirect('donations')
     """
 
     def test_func(self):

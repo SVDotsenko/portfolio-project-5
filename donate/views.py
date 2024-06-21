@@ -55,7 +55,8 @@ def make_stripe_payment(request):
         request (HttpRequest): The HTTP request object.
 
     Returns:
-        stripe.Charge or None: The Stripe charge object if the payment is successful,
+        stripe.Charge or None: The Stripe charge object if the payment is
+        successful,
         None otherwise.
 
     Raises:
@@ -89,7 +90,8 @@ def donate(request):
         request (HttpRequest): The HTTP request object.
 
     Returns:
-        HttpResponseRedirect: Redirects to the 'history' page if the donation is successful.
+        HttpResponseRedirect: Redirects to the 'history' page if the donation
+        is successful.
 
     """
     if request.method == 'POST':

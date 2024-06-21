@@ -13,8 +13,7 @@ class StripeTransaction(models.Model):
         charge.
         amount: An IntegerField that stores the amount of the transaction.
         timestamp: A DateTimeField that stores the date and time the
-        transaction was created.
-                   It is set to the current date/time by default.
+        transaction was created. It is set to the current date/time by default.
     """
     stripe_charge_id = models.CharField(max_length=50)
     amount = models.IntegerField()

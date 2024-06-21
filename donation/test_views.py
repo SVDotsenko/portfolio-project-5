@@ -165,15 +165,6 @@ class DonationViewTests(TestCase):
         view with the necessary data. It then checks if the donation object
         has been updated correctly by asserting
         the expected values against the actual values.
-
-        Steps:
-        1. Log in as a superuser.
-        2. Create a dictionary containing the updated donation data.
-        3. Send a POST request to the 'update_donation' view with the donation
-        ID and the updated data.
-        4. Refresh the donation object from the database.
-        5. Assert that the updated values match the expected values.
-
         """
         self.client.login(username='superuser', password='12345')
         post_data = {

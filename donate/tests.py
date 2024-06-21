@@ -1,3 +1,1 @@
-from django.test import TestCase
-
-# Create your tests here.
+# There are manual tests in the README.md file for this app.
