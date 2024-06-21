@@ -906,3 +906,10 @@ body.modal-open {
         display: none;
     }
 }
+
+.accordion-item > .accordion-button > span {
+    color: var(--primary-color);
+    font-size: var(--h5-font-size);
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: -1px;
+}
