@@ -272,7 +272,7 @@ The entire project is covered by unit tests. Test coverage reports can be viewed
 ## Validator Testing
 
 - HTML
-  - All errors found by official W3C validator were fixed in separate [commit](https://github.com/SVDotsenko/portfolio-project-4/commit/b4cffffd38b8bc78106bc701044a4a9a3f8800b1).
+  - All errors found by official W3C validator were fixed in separate commits by User Story #20.
 - CSS
   - No errors were found when passing through the official (Jigsaw) validator
 - JavaScript
@@ -284,8 +284,7 @@ The entire project is covered by unit tests. Test coverage reports can be viewed
 
 ## Unfixed Bugs
 
-- Due to the fact that as an initial template I took an open source template and modified it, there may be unused
-  classes in HTML and CSS, because I did not find tool that can check it automatically, I tried to find and remove it manually.
+- There were found some small issues on Sign Up page by W3C validator, but as this page is build by AllAuth library, I can't fix it.
 
 ## Deployment
 
