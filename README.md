@@ -309,6 +309,7 @@ The entire project is covered by unit tests. Test coverage reports can be viewed
         }
     
     </details>
+  - There was implemented [script](static/js/ci-jshint.js) for running remote validation for JavaScript files.
 - Python - All errors found by [CI Python Linter](https://pep8ci.herokuapp.com) were fixed in separate [commit](https://github.com/SVDotsenko/portfolio-project-4/commit/0379719df6edc0210029873d157f4d71d41e60da).
 - Accessibility
   - I confirm that the colors and fonts chosen are easy to read and accessible by running it through lighthouse in devtools.
