@@ -272,13 +272,14 @@ The entire project is covered by unit tests. Test coverage reports can be viewed
 ## Validator Testing
 
 - HTML
-  - All errors found by official [W3C](https://validator.w3.org/#validate_by_uri) validator were fixed in separate commit by User Story #20.
+  - All errors found by official [W3C](https://validator.w3.org/#validate_by_uri) validator were fixed in separate 
+    commits by User Story [#20](https://github.com/SVDotsenko/portfolio-project-5/issues/20).
 - CSS
-  - All errors found by official [Jigsaw](https://jigsaw.w3.org/css-validator) validator were fixed in separate commit by User Story #20.
+  - All errors found by official [Jigsaw](https://jigsaw.w3.org/css-validator) validator were fixed in separate [commit](https://github.com/SVDotsenko/portfolio-project-5/commit/436b043193faff706b7c3d12fa050691f36bceb5) by User Story [#20](https://github.com/SVDotsenko/portfolio-project-5/issues/20).
 - JavaScript
-  - All errors found by official [CI JSHint API](https://ci-jshint.herokuapp.com) validator were fixed (using ES6 syntax) in separate commit by User Story #20.
+  - All errors found by official [CI JSHint API](https://ci-jshint.herokuapp.com) validator were fixed (using ES6 syntax) in separate [commit](https://github.com/SVDotsenko/portfolio-project-5/commit/2eae8534487ae19c763341d04188cc8114f6217e) by User Story [#20](https://github.com/SVDotsenko/portfolio-project-5/issues/20).
   - <details>
-      <summary>Results of CI JSHint validation</summary>
+      <summary>Results of CI JSHint validation.</summary>
     
         Validation results for toast.js: {
             error_list: [],
@@ -310,10 +311,10 @@ The entire project is covered by unit tests. Test coverage reports can be viewed
     
     </details>
   - There was implemented [script](static/js/ci-jshint.js) for running remote validation for JavaScript files.
-- Python - All errors found by [CI Python Linter](https://pep8ci.herokuapp.com) were fixed in separate [commit](https://github.com/SVDotsenko/portfolio-project-4/commit/0379719df6edc0210029873d157f4d71d41e60da).
+- Python - There were not find any errors by [CI Python Linter](https://pep8ci.herokuapp.com).
 - Accessibility
   - I confirm that the colors and fonts chosen are easy to read and accessible by running it through lighthouse in devtools.
-    ![lighthouse](static/img/readme/lighthouse.png)
+    ![lighthouse](static/images/readme/lighthouse.png)
 
 ## Unfixed Bugs
 

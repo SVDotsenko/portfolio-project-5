@@ -4,7 +4,7 @@
  * for validation.
  * The results are then logged to the console.
  * To run this script locally, you should create a .env file in the same directory where this file is, with the
- * following content: API_KEY="YOUR_API_KEY"
+ * following content: API_KEY=YOUR_API_KEY
  */
 
 const fs = require('fs'); // Node.js File System module for file I/O operations
@@ -13,7 +13,7 @@ const path = require('path'); // Node.js Path module for handling and transformi
 // Read the .env file and extract the API key
 const envPath = path.join(__dirname, '.env');
 const envData = fs.readFileSync(envPath, 'utf8');
-const API_KEY = envData.split('=')[1].replace(/"/g, '').trim();
+const API_KEY = envData.split('=')[1]
 
 // Read the current directory
 fs.readdir(__dirname, (err, files) => {
