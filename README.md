@@ -14,7 +14,7 @@ Kind Heart Charity is a web-based application designed to facilitate and manage 
 
 - Access to the donation cards and donation history is available to all users, including unregistered users.
 - Access for making donations and all edit, update, delete actions is only possible for registered users.
-- The application has 2 user roles: Donors and Administrator.
+- The application has two user roles: Donors and Administrator.
 - Registration of a new user (with the role of Donor) through the user interface.
 
 Common functionality for both roles includes:
@@ -23,7 +23,7 @@ Common functionality for both roles includes:
 - Viewing all causes.
 - If the user will try to access the route that is not exist, the user will be redirected to the 404 page.
 - There are [tooltips](https://getbootstrap.com/docs/5.3/components/tooltips) for logout and delete button.
-- There are [toasts](https://getbootstrap.com/docs/5.3/components/toasts) for all create, update and delete operations which provide current user details about
+- There are [toasts](https://getbootstrap.com/docs/5.3/components/toasts) for all create, update and delete operations, which provide current user details about
   what he\she has just done.
 - All input fields in this application are mandatory and have a validation on the client side.
 
@@ -73,7 +73,7 @@ Administrator functionality:
   - The administrator can not access this page. If the administrator will try to access this page, he/she will be 
     redirected to the Home page.
   - On this form the Donor can change the cause of donation, the amount of donation, first name, second name, email.
-  - The block with personal information is hiding automatically with a short delay if the user has alredy done a 
+  - The block with personal information is hiding automatically with a short delay if the user has already done a 
     donation earlier and the fields with personal information was fulfilled after hiding the information toast. 
     These events are connected with each other.
   - There is also option to subscribe to the newsletter.
@@ -88,14 +88,14 @@ Administrator functionality:
 
 - **History**
 
-  This page is available for any users even unauthorised.  
+  This page is available for any users even unauthorized.  
   There are 2 tables on this page.
 
   - Donation history (each single transaction).  It shows the history of donations. The user can see the date of 
     donation, the amount of donation, and the cause of donation. The number of columns in this table is changing 
     depending on the screen width.
   - Aggregated donations grouped by donor. It shows the total amount of donations for each donor. This table is sorted 
-       by the total amount of donations in descending order. If the user is authorised, the row with his/her name 
+       by the total amount of donations in descending order. If the user is authorized, the row with his/her name 
     will be highlighted. 
 
 
