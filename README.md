@@ -330,17 +330,19 @@ The project was deployed to [Heroku](https://www.heroku.com).
 
 The process of deploying this project to Heroku is consist of these main steps.
 
-1. You should have accounts on GitHub, Heroku, Cloudinary, ElephantSQL.
+1. You should have accounts on GitHub, Heroku, Stripe, ElephantSQL.
 2. You should create database on ElephantSQL and create models.
 3. Deploy the project to Heroku.
 
-#### Cloudinary
+#### Stripe
 
-To get the CLOUDINARY_URL, you need to create an account on [Cloudinary](https://cloudinary.com) and follow the
+To get the Stripe Secret and Private keys, you need to create an account on [Stripe](https://stripe.com) and 
+follow the
 instructions to get the URL:
 
-1. Log in to your Cloudinary account.
-2. Go to the "Dashboard" in section "Product Environment Credentials" you will see "API environment variable". It is your CLOUDINARY_URL.
+1. Log in to your Stripe account.
+2. Go to the "Dashboard" in section "Get started with Stripe" you will see "Publishable key" and "Secret key". It is 
+   your keys which you should insert in [env.md](env.md).
 
 #### ElephantSQL
 
@@ -352,7 +354,8 @@ follow the instructions to get the URL:
 3. Name your database and select the "Tiny Turtle Free" plan.
 4. Select the data center near you and click "Review".
 5. Click "Create Instance".
-6. Click on your new database instance you just created in section Details you will see Password and URL, this corresponds to the SECRET_KEY and DATABASE_URL.
+6. Click on your new database instance you just created in section Details you will see Password and URL, this 
+   corresponds to the SECRET_KEY and DATABASE_URL in [env.md](env.md).
 
 #### Creating models on ElephantSQL
 
@@ -360,7 +363,7 @@ To create models on ElephantSQL you need to do the following steps:
 
 1. Clone the project to your local machine, to do it run this command in your terminal:
    ```bash
-   git clone https://github.com/SVDotsenko/portfolio-project-4.git
+   git clone https://github.com/SVDotsenko/portfolio-project-5.git
    ```
 2. Follow the instruction in [env.md](env.md) file.
 3. On your local machine, must be installed Python 3.9.19 or higher.
@@ -398,8 +401,8 @@ To create models on ElephantSQL you need to do the following steps:
 
    - `DATABASE_URL`: Your ElephantSQL database URL.
    - `SECRET_KEY`: Your ElephantSQL secret key.
-   - `CLOUDINARY_URL`: Your Cloudinary URL.
-   - `DJANGO_DEBUG`: False.
+   - `STRIPE_PK`: Your Stripe Public key.
+   - `STRIPE_SK`: You Stripe Secret key.
 
 1. In the "Deploy" tab, select "GitHub" as the deployment method.
 1. Search for the repository you forked earlier and click "Search".
@@ -432,6 +435,17 @@ To run unit tests locally and see coverage reports, you need:
    ./coverage.sh
    ```
 4. The browser should be opened a new tabs with the coverage reports.
+
+### How to run remote validation for JavaScript files
+To run remote validation for JavaScript files, you need:
+
+1. Get your key from Code Institute.
+2. Create .env file in [static/js](static/js) folder.
+3. Insert your key in this file in format API_KEY=YOUR_KEY. No quotes are needed.
+4. Run this command:
+   ```bash
+   node static/js/ci-jshint.js
+   ```
 
 ## E-commerce Business Model for the Donation Collection Application
 
