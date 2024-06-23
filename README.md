@@ -467,6 +467,25 @@ The donation collection application operates on a non-profit e-commerce business
 
 In summary, while the application's primary purpose is not to sell products or services, it utilizes key e-commerce principles to provide a user-friendly, efficient, and secure platform for charitable donations.
 
+
+## Facebook Business Page
+
+There was created a Facebook Business Page for this project. 
+The purpose of this page is to promote the application and attract users who are interested in making charitable donations. 
+The page includes information about the causes supported by the application, updates on donation drives, and user testimonials. 
+The page also features links to the application's website and social media profiles. 
+By leveraging Facebook's advertising tools, the page can reach a wider audience and drive traffic to the application. 
+This can help increase donations and raise awareness about the charitable causes supported by the application.
+
+![Facebook Business Page](static/images/readme/fb1.png)
+![Facebook Business Page](static/images/readme/fb2.png)
+![Facebook Business Page](static/images/readme/fb3.png)
+
+The page has been deactivated
+
+![Facebook Business Page](static/images/readme/fb-deactivation.png)
+![Facebook Business Page](static/images/readme/fb-deactivation2.png)
+
 ## Credits
 
 This [template](https://templatemo.com/tm-581-kind-heart-charity) was adopted for the project.
