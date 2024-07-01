@@ -23,5 +23,12 @@
             </div>
         </div>
     </div>
-
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const elements = document.getElementsByClassName('helptext');
+            while (elements.length > 0) {
+                elements[0].parentNode.removeChild(elements[0]);
+            }
+        });
+    </script>
 {% endblock %}
