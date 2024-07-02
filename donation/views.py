@@ -258,7 +258,16 @@ def delete_donation(request, donation_id):
         Http404: If the donation with the specified ID does not exist.
     """
     donation = get_object_or_404(Donation, id=donation_id)
-    donation.delete()
-    message = f'Donation {donation.title.capitalize()} deleted successfully'
-    messages.success(request, message)
+    if request.user.is_superuser:
+        if raised(donation) > 0:
+            messages.error(request, 'Card cannot be deleted because donations '
+                                    'have already been made to it')
+            return redirect('donations')
+        donation.delete()
+        message = (f'Donation {donation.title.capitalize()} deleted '
+                   f'successfully')
+        messages.success(request, message)
+    else:
+        messages.error(request, 'You are not allowed to access this page')
+
     return redirect('donations')

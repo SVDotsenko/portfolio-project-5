@@ -387,7 +387,7 @@ To create models on ElephantSQL you need to do the following steps:
    ```bash
     python manage.py createsuperuser
     ```
-7. The users with role Reader can be created through the sign-up form.
+7. The users with role Donor can be created through the sign-up form.
 
 #### Heroku
 
