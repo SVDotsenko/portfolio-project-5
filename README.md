@@ -4,8 +4,6 @@ Kind Heart Charity is a web-based application designed to facilitate and manage 
 
 ---
 
-[View live project here](https://pp5-charity-9abf0672865b.herokuapp.com)
-
 ![Responsive design](static/images/readme/smartphones.png)
 
 ![Responsive design](static/images/readme/desktop.png)
